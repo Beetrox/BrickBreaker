@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour {
     Vector3 ballSpawnLocation = new Vector3(0, 0, 0);
     public BallController ballController;
     public BrickController bricksController;
+    public int ballForce = -6;
+
+    private GameObject _ball;
 
 	// Use this for initialization
 	void Start ()
@@ -19,7 +22,7 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		
+        Debug.Log(string.Format("Ball speed:{0}", _ball.GetComponentInChildren<Rigidbody2D>().velocity));
 	}
 
     void SpawnNewBall()
@@ -30,6 +33,9 @@ public class GameManager : MonoBehaviour {
             GameObject ball = Instantiate(ballPrefab, ballSpawnLocation, transform.rotation);
             //ballController.gameManager = this;
             ball.tag = "Ball";
+            Rigidbody2D rigidbody = (Rigidbody2D)ball.GetComponentInChildren(typeof(Rigidbody2D));
+            rigidbody.AddForce(new Vector2(0, ballForce), ForceMode2D.Impulse);
+            _ball = ball;
         }
     }
 
