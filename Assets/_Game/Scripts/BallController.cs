@@ -6,14 +6,14 @@ public class BallController : MonoBehaviour
 {
     public GameManager gameManager;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         //Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
         //pos.x = Mathf.Clamp01(pos.x);
@@ -33,6 +33,17 @@ public class BallController : MonoBehaviour
         {
             Debug.Log("continue game");
             return false;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("collided");
+        if (collision.gameObject.tag == "Bottom")
+        {
+            Debug.Log("hit bottom");
+            //gameManager.DestroyObject(gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
         }
     }
 }
