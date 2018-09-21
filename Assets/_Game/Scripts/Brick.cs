@@ -5,6 +5,7 @@ using UnityEngine;
 public class Brick : MonoBehaviour {
 
     public GameManager gameManager;
+    public GameObject explosion;
 
 	// Use this for initialization
 	void Start () {
@@ -22,8 +23,8 @@ public class Brick : MonoBehaviour {
         if (collision.gameObject.tag == "Ball")
         {
             Debug.Log("hit ball");
-            //gameManager.DestroyObject(gameObject);
-            Destroy(gameObject);
+            Destroy(gameObject, 0.05f);
+            Instantiate(explosion, transform.position, explosion.transform.rotation);
         }
     }
 }

@@ -595,6 +595,8 @@ MonoBehaviour:
   ballPrefab: {fileID: 1641737354451900, guid: d951291a1879c9240a18d5174b5b93ac, type: 2}
   brickPrefab: {fileID: 1298005912168270, guid: dda26efed1d83ae4baa82ff959406f4b,
     type: 2}
+  explosionPrefab: {fileID: 1797836275533996, guid: 4cb7f5e90cfdd9a4faf8a98580032537,
+    type: 2}
 --- !u!4 &1162550681
 Transform:
   m_ObjectHideFlags: 0

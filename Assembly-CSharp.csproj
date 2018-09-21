@@ -64,6 +64,7 @@
     <Compile Include="Assets\_Game\Scripts\BallController.cs" />
     <Compile Include="Assets\_Game\Scripts\Brick.cs" />
     <Compile Include="Assets\_Game\Scripts\BrickController.cs" />
+    <Compile Include="Assets\_Game\Scripts\ExplosionController.cs" />
     <Compile Include="Assets\_Game\Scripts\GameManager.cs" />
     <Compile Include="Assets\_Game\Scripts\InputController.cs" />
     <Reference Include="UnityEditor.StandardEvents">

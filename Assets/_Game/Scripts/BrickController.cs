@@ -67,22 +67,23 @@ public class BrickController : MonoBehaviour {
     //    {
     //        Debug.Log("hit ball");
     //    }
-    //    //gameManager.DestroyObject();
+    //    Destroy(gameObject, 0.5f);
+    //    Instantiate(explosion, transform.position, explosion.transform.rotation);
     //}
 
-    public bool IsTouchedByBall(GameObject brick)
-    {
-        LayerMask mask = LayerMask.GetMask("Ball");
-        RaycastHit2D hit = Physics2D.Raycast(brick.transform.position, Vector2.down, Mathf.Infinity, mask);
-        if (hit.collider != null)
-        {
-            return false;
-        }
-        else
-        {
-            gameManager.DestroyObject(brick);
-            return true;
-        }
+    //public bool IsTouchedByBall(GameObject brick)
+    //{
+    //    LayerMask mask = LayerMask.GetMask("Ball");
+    //    RaycastHit2D hit = Physics2D.Raycast(brick.transform.position, Vector2.down, Mathf.Infinity, mask);
+    //    if (hit.collider != null)
+    //    {
+    //        return false;
+    //    }
+    //    else
+    //    {
+    //        gameManager.DestroyObject(brick);
+    //        return true;
+    //    }
 
         //Collider2D BallCollider = ballPrefab.GetComponentInChildren<Collider2D>();
         //Collider2D BrickCollider = brickPrefab.GetComponentInChildren<Collider2D>();
@@ -101,5 +102,5 @@ public class BrickController : MonoBehaviour {
         //    gameManager.DestroyObject(brick);
         //    return true;
         //}
-    }
+    //}
 }
