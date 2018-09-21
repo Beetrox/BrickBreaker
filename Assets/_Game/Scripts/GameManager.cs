@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
     Vector3 ballSpawnLocation = new Vector3(0, 0, 0);
     public BallController ballController;
     public BrickController bricksController;
-    public int ballForce = -6;
+    int ballForce = -6;
 
     private GameObject _ball;
 
@@ -22,8 +22,9 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        //reset input position?
         SpawnNewBall();
-        //Debug.Log(string.Format("Ball speed:{0}", _ball.GetComponentInChildren<Rigidbody2D>().velocity));
+        Debug.Log(string.Format("Ball speed:{0}", _ball.GetComponentInChildren<Rigidbody2D>().velocity));
     }
 
     void SpawnNewBall()

@@ -26,7 +26,7 @@ public class InputController : MonoBehaviour
             Vector2 touchPosition = Input.GetTouch(0).position;
             double halfScreen = Screen.width / 2.0;
 
-            //Check if it is left or right?
+            //Check if click is left or right side
             if (touchPosition.x < halfScreen)
             {
                 transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
@@ -35,8 +35,6 @@ public class InputController : MonoBehaviour
             {
                 transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
             }
-
         }
-
     }
 }

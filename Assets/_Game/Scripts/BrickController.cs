@@ -8,21 +8,28 @@ public class BrickController : MonoBehaviour {
     public GameObject ballPrefab;
     public GameObject brickPrefab;
 
-    public int bricks = 11;
-    public float brickDistance = 1.5f;
+    //int bricks = 11;
+    float startPositionX = -8;
+    float startPositionY = 3.5f;
+    float brickSpacingX = 1.6f;
+    float brickSpacingY = 0.5f;
+    int gridRows = 11;
+    int gridColumns = 3;
 
     private void Start()
     {
-        for (int i = 1; i < bricks; i++)
-        {
-            // distribute evenly
-            // multiple rows
-            GameObject newBrick = Instantiate(transform.GetChild(0).gameObject);
-            newBrick.transform.SetParent(transform);
-            Vector3 pos = newBrick.transform.position;
-            pos.x += (i * brickDistance);
-            newBrick.transform.position = pos;
-        }
+        SetUpBricks();
+
+        //for (int i = 1; i < bricks; i++)
+        //{
+        //    // distribute evenly
+        //    // multiple rows
+        //    GameObject newBrick = Instantiate(transform.GetChild(0).gameObject);
+        //    newBrick.transform.SetParent(transform);
+        //    Vector3 pos = newBrick.transform.position;
+        //    pos.x += (i * brickSpacing);
+        //    newBrick.transform.position = pos;
+        //}
     }
 
     // Update is called once per frame
@@ -32,13 +39,26 @@ public class BrickController : MonoBehaviour {
 
     public void SetUpBricks()
     {
-
-        foreach (Transform child in transform)
+        for (int y = 0; y < gridColumns; y++)
         {
-            child.gameObject.SetActive(true);
-            // add "brick" tag
+            for (int x = 0; x < gridRows; x++)
+            {
+                Vector3 spawnPosition = new Vector3(startPositionX + x * (brickSpacingX), startPositionY + y * (brickSpacingY), 0);
+                GameObject brick = Instantiate(brickPrefab, spawnPosition, Quaternion.identity) as GameObject;
+                brick.name = x + "/" + y;
+                brick.transform.parent = gameObject.transform;
+            }
         }
     }
+
+    //public void SetUpBricks()
+    //{
+    //    foreach (Transform child in transform)
+    //    {
+    //        child.gameObject.SetActive(true);
+    //        // add "brick" tag
+    //    }
+    //}
 
     //private void OnCollisionEnter2D(Collision2D collision)
     //{
