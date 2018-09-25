@@ -19,10 +19,10 @@ public class Brick : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collided");
+        //Debug.Log("collided");
         if (collision.gameObject.tag == "Ball")
         {
-            Debug.Log("hit ball");
+            //Debug.Log("hit ball");
             Destroy(gameObject, 0.05f);
             Instantiate(explosion, transform.position, explosion.transform.rotation);
         }

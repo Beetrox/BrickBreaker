@@ -50,10 +50,10 @@ public class BallController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collided");
+        //Debug.Log("collided");
         if (collision.gameObject.tag == "Bottom")
         {
-            Debug.Log("hit bottom");
+            //Debug.Log("hit bottom");
             //gameManager.DestroyObject(gameObject);
             Destroy(gameObject.transform.parent.gameObject);
         }

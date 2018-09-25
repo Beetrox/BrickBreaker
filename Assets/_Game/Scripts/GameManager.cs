@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
     int ballForce = -6;
 
     private GameObject _ball;
+    int ballHash;
 
 	// Use this for initialization
 	void Start ()
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour {
     {
         //reset input position?
         SpawnNewBall();
-        Debug.Log(string.Format("Ball speed:{0}", _ball.GetComponentInChildren<Rigidbody2D>().velocity));
+        //Debug.Log(string.Format("Ball speed:{0}", _ball.GetComponentInChildren<Rigidbody2D>().velocity));
     }
 
     void SpawnNewBall()
