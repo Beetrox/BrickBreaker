@@ -6,6 +6,9 @@ public class Brick : MonoBehaviour {
 
     public GameManager gameManager;
     public GameObject explosion;
+    public GameObject powerUpPrefab;
+
+    int randomPowerUp;
 
 	// Use this for initialization
 	void Start () {
@@ -19,12 +22,19 @@ public class Brick : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        randomPowerUp = Random.Range(1, 4);
+
         //Debug.Log("collided");
         if (collision.gameObject.tag == "Ball")
         {
             //Debug.Log("hit ball");
-            Destroy(gameObject, 0.05f);
+            if(randomPowerUp == 1)
+            {
+                Debug.Log("power up spawned");
+                Instantiate(powerUpPrefab, transform.position, powerUpPrefab.transform.rotation);
+            }
             Instantiate(explosion, transform.position, explosion.transform.rotation);
+            Destroy(gameObject, 0.05f);
         }
     }
 }

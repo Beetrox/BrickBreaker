@@ -21,11 +21,6 @@ public class CameraBorderController : MonoBehaviour {
         rightBorder.transform.position = new Vector3(cameraSize.x, 0, 0);
         topBorder.transform.position = new Vector3(0, cameraSize.y, 0);
         bottomBorder.transform.position = new Vector3(0, -cameraSize.y - 1, 0);
-
-
-
-
-		
 	}
 	
 	// Update is called once per frame

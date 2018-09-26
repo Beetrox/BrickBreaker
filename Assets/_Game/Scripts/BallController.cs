@@ -59,25 +59,25 @@ public class BallController : MonoBehaviour
         }
     }
 
-    void FastBall()
+    public void FastBall()
     {
         // change speed of ball
         isFastBall = true;
     }
 
-    void FireBall()
+    public void FireBall()
     {
         // make ball burn adjacent bricks
         isFireBall = true;
     }
 
-    void GhostBall()
+    public void GhostBall()
     {
         // make ball ignore walls
         isGhostBall = true;
     }
 
-    void SplitBall()
+    public void SplitBall()
     {
         // spawn second ball from original ball
         isSplitBall = true;

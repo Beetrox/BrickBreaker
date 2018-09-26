@@ -80,6 +80,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   explosion: {fileID: 1797836275533996, guid: 4cb7f5e90cfdd9a4faf8a98580032537, type: 2}
+  powerUpPrefab: {fileID: 1589450999686478, guid: e86d1c44bfd97e9429eae6adafc57663,
+    type: 2}
 --- !u!212 &212094360759482686
 SpriteRenderer:
   m_ObjectHideFlags: 1

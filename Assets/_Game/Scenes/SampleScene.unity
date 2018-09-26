@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 1004531631}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Input
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -760,6 +760,58 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 40, y: 1}
   m_EdgeRadius: 0
+--- !u!1001 &1883428810
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4849056470033990, guid: e86d1c44bfd97e9429eae6adafc57663, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849056470033990, guid: e86d1c44bfd97e9429eae6adafc57663, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849056470033990, guid: e86d1c44bfd97e9429eae6adafc57663, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849056470033990, guid: e86d1c44bfd97e9429eae6adafc57663, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849056470033990, guid: e86d1c44bfd97e9429eae6adafc57663, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849056470033990, guid: e86d1c44bfd97e9429eae6adafc57663, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849056470033990, guid: e86d1c44bfd97e9429eae6adafc57663, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849056470033990, guid: e86d1c44bfd97e9429eae6adafc57663, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 50270460616751438, guid: e86d1c44bfd97e9429eae6adafc57663,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 61206098730329142, guid: e86d1c44bfd97e9429eae6adafc57663,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e86d1c44bfd97e9429eae6adafc57663, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1914304406
 GameObject:
   m_ObjectHideFlags: 0

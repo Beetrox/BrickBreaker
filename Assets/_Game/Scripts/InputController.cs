@@ -37,4 +37,9 @@ public class InputController : MonoBehaviour
             }
         }
     }
+
+    public void PowerUpFlash()
+    {
+        Debug.Log("flashing");
+    }
 }

@@ -68,6 +68,7 @@
     <Compile Include="Assets\_Game\Scripts\ExplosionController.cs" />
     <Compile Include="Assets\_Game\Scripts\GameManager.cs" />
     <Compile Include="Assets\_Game\Scripts\InputController.cs" />
+    <Compile Include="Assets\_Game\Scripts\PowerUpController.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Programming/Skolarbeten/BrickBreaker/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
