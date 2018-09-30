@@ -5,7 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     public GameObject ballPrefab;
+    public GameObject inputPrefab;
     Vector3 ballSpawnLocation = new Vector3(0, 0, 0);
+    Vector3 inputSpawnLocation;
     public BallController ballController;
     public BrickController bricksController;
     int ballForce = -6;
@@ -16,7 +18,9 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
         bricksController.SetUpBricks();
+        SpawnInput();
         SpawnNewBall();
 	}
 	
@@ -26,6 +30,20 @@ public class GameManager : MonoBehaviour {
         //reset input position?
         SpawnNewBall();
         //Debug.Log(string.Format("Ball speed:{0}", _ball.GetComponentInChildren<Rigidbody2D>().velocity));
+    }
+
+    void SpawnInput()
+    {
+        Vector2 size = new Vector2(Screen.width, Screen.height);
+        Vector3 cameraSize = Camera.main.ScreenToWorldPoint(size);
+
+        float cameraX = cameraSize.x;
+        float cameraY = cameraSize.y;
+        float cameraZ = cameraSize.z;
+
+        inputSpawnLocation = new Vector3(0, 0, 0);
+
+        GameObject input = Instantiate(inputPrefab, inputSpawnLocation, transform.rotation);
     }
 
     void SpawnNewBall()

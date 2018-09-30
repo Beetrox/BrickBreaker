@@ -7,19 +7,24 @@ public class InputController : MonoBehaviour
 
     public int moveSpeed = 8;
 
-    // Use this for initialization
-    void Start()
+    private void Start()
     {
+        Vector2 size = new Vector2(Screen.width, Screen.height);
+        Vector3 cameraSize = Camera.main.ScreenToWorldPoint(size);
+        
+        float cameraX = cameraSize.x;
+        float cameraY = cameraSize.y;
+        float cameraZ = cameraSize.z;
 
+        transform.localScale = new Vector3(cameraX/5, cameraY/9, cameraZ);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-        pos.x = Mathf.Clamp01(pos.x);
-        pos.y = Mathf.Clamp01(pos.y);
-        transform.position = Camera.main.ViewportToWorldPoint(pos);
+        Vector3 position = Camera.main.WorldToViewportPoint(transform.position);
+        position.x = Mathf.Clamp01(position.x);
+        position.y = Mathf.Clamp01(position.y);
+        transform.position = Camera.main.ViewportToWorldPoint(position);
 
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
         {

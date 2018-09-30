@@ -9,12 +9,6 @@ public class BrickController : MonoBehaviour {
     public GameObject brickPrefab;
 
     //int bricks = 11;
-    float startPositionX = -8;
-    float startPositionY = 3.5f;
-    float brickSpacingX = 1.6f;
-    float brickSpacingY = 0.5f;
-    int gridRows = 11;
-    int gridColumns = 3;
 
     private void Start()
     {
@@ -39,6 +33,29 @@ public class BrickController : MonoBehaviour {
 
     public void SetUpBricks()
     {
+
+        Vector2 size = new Vector2(Screen.width, Screen.height);
+        Vector3 cameraSize = Camera.main.ScreenToWorldPoint(size);
+
+        float cameraX = cameraSize.x;
+        float cameraY = cameraSize.y;
+        float cameraZ = cameraSize.z;
+
+        float brickSpacingX = cameraX / 5;
+        float brickSpacingY = cameraY / 9;
+        float startPositionX = -cameraX + brickSpacingX;
+        float startPositionY = cameraY - brickSpacingY;
+        int gridRows = 9;
+        int gridColumns = 3;
+
+        //Vector3 startPositionX =  cameraSize/2;
+        //Vector3 startPositionY = cameraSize/2;
+        //Vector3 brickSpacingX = cameraSize/14;
+        //Vector3 brickSpacingY = cameraSize/14;
+        //int gridRows = 11;
+        //int gridColumns = 3;
+
+
         for (int y = 0; y < gridColumns; y++)
         {
             for (int x = 0; x < gridRows; x++)

@@ -9,7 +9,7 @@ public class BallController : MonoBehaviour
     Rigidbody2D rigidbody;
     //Vector2 constantVelocity = new Vector2(1f, 1f);
     float constantSpeed = 6f;
-    bool isFastBall = false;
+    public bool isFastBall = false;
     bool isFireBall = false;
     bool isGhostBall = false;
     bool isSplitBall = false;
@@ -25,12 +25,28 @@ public class BallController : MonoBehaviour
     {
         //rigidbody.velocity = constantVelocity;
         //rigidbody.AddForce(constantVelocity);
-        rigidbody.velocity = constantSpeed * (rigidbody.velocity.normalized);
+
+        if(isFastBall)
+        {
+            Debug.Log("is fast ball");
+            FastBall();
+        }
+        else
+        {
+            ConstantSpeed();
+        }
 
         //Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
         //pos.x = Mathf.Clamp01(pos.x);
         //pos.y = Mathf.Clamp01(pos.y);
         //transform.position = Camera.main.ViewportToWorldPoint(pos);
+
+        //Debug.Log(constantSpeed);
+    }
+
+    void ConstantSpeed()
+    {
+        rigidbody.velocity = constantSpeed * (rigidbody.velocity.normalized);
     }
 
     bool IsBallOutsideArea()
@@ -62,7 +78,10 @@ public class BallController : MonoBehaviour
     public void FastBall()
     {
         // change speed of ball
-        isFastBall = true;
+        Debug.Log("Is Fast Ball");
+        //isFastBall = true;
+        //constantSpeed = 10f;
+        rigidbody.velocity = constantSpeed * (rigidbody.velocity.normalized);
     }
 
     public void FireBall()
