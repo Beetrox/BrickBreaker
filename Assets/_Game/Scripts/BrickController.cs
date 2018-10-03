@@ -7,6 +7,7 @@ public class BrickController : MonoBehaviour {
     public GameManager gameManager;
     public GameObject ballPrefab;
     public GameObject brickPrefab;
+    GameObject brick;
 
     //int bricks = 11;
 
@@ -41,27 +42,22 @@ public class BrickController : MonoBehaviour {
         float cameraY = cameraSize.y;
         float cameraZ = cameraSize.z;
 
-        float brickSpacingX = cameraX / 5;
-        float brickSpacingY = cameraY / 9;
-        float startPositionX = -cameraX + brickSpacingX;
-        float startPositionY = cameraY - brickSpacingY;
         int gridRows = 9;
         int gridColumns = 3;
 
-        //Vector3 startPositionX =  cameraSize/2;
-        //Vector3 startPositionY = cameraSize/2;
-        //Vector3 brickSpacingX = cameraSize/14;
-        //Vector3 brickSpacingY = cameraSize/14;
-        //int gridRows = 11;
-        //int gridColumns = 3;
+        //Debug.Log(gridRows / 2);
 
+        float brickSpacingX = cameraX / 5.6f;
+        float brickSpacingY = cameraY / 9;
+        float startPositionX = 0 - brickSpacingX * (gridRows / 2);
+        float startPositionY = cameraY - cameraY * 0.3f;
 
         for (int y = 0; y < gridColumns; y++)
         {
             for (int x = 0; x < gridRows; x++)
             {
-                Vector3 spawnPosition = new Vector3(startPositionX + x * (brickSpacingX), startPositionY + y * (brickSpacingY), 0);
-                GameObject brick = Instantiate(brickPrefab, spawnPosition, Quaternion.identity) as GameObject;
+                Vector3 spawnPosition = new Vector3(startPositionX + x * brickSpacingX, startPositionY + y * brickSpacingY, 0);
+                brick = Instantiate(brickPrefab, spawnPosition, Quaternion.identity) as GameObject;
                 brick.name = x + "/" + y;
                 brick.transform.parent = gameObject.transform;
             }

@@ -10,10 +10,14 @@ public class Brick : MonoBehaviour {
     public GameObject ball;
     public BallController ballController;
 
+    BoxCollider2D boxCollider;
+
     int randomPowerUp;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
+        boxCollider = gameObject.GetComponentInChildren<BoxCollider2D>();
 
         ball = GameObject.FindGameObjectWithTag("Ball");
         ballController = ball.GetComponent<BallController>();
@@ -25,7 +29,7 @@ public class Brick : MonoBehaviour {
         float cameraY = cameraSize.y;
         float cameraZ = cameraSize.z;
 
-        transform.localScale = new Vector3(cameraX / 7, cameraY / 13, cameraZ);
+        transform.localScale = new Vector3(cameraX / 7f, cameraY / 16, cameraZ);
 
         //Vector2 size = new Vector2(Screen.width, Screen.height);
         //int screenWidth = Screen.width;
@@ -37,28 +41,31 @@ public class Brick : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         randomPowerUp = Random.Range(1, 4);
-
+        
         //Debug.Log("collided");
         if (collision.gameObject.tag == "Ball")
         {
             //Debug.Log("hit ball");
-            if(randomPowerUp == 1)
+            if (randomPowerUp == 1)
             {
-                Debug.Log("power up spawned");
-
-                //move to PowerUpController
-                ballController.FastBall();
+                Debug.Log("power up 1 spawned");
                 Instantiate(powerUpPrefab, transform.position, powerUpPrefab.transform.rotation);
             }
             Instantiate(explosion, transform.position, explosion.transform.rotation);
             Destroy(gameObject, 0.05f);
         }
     }
+
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    Debug.Log("Collision: " + gameObject.name);
+    //}
 }

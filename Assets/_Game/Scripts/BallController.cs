@@ -18,6 +18,8 @@ public class BallController : MonoBehaviour
     void Start()
     {
         rigidbody = gameObject.GetComponentInChildren<Rigidbody2D>() as Rigidbody2D;
+        Vector3 size = new Vector3(0.7f, 0.7f, 0.7f);
+        LeanTween.scale(gameObject, size, 0.15f).setEaseInQuad();
     }
 
     // Update is called once per frame

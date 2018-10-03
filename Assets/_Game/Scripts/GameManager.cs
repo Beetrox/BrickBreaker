@@ -12,8 +12,8 @@ public class GameManager : MonoBehaviour {
     public BrickController bricksController;
     int ballForce = -6;
 
-    private GameObject _ball;
-    int ballHash;
+    //private GameObject _ball;
+    //int ballHash;
 
 	// Use this for initialization
 	void Start ()
@@ -53,10 +53,10 @@ public class GameManager : MonoBehaviour {
             //Debug.Log("spawn");
             GameObject ball = Instantiate(ballPrefab, ballSpawnLocation, transform.rotation);
             //ballController.gameManager = this;
-            ball.tag = "Ball";
+            //ball.tag = "Ball";
             Rigidbody2D rigidbody = (Rigidbody2D)ball.GetComponentInChildren(typeof(Rigidbody2D));
             rigidbody.AddForce(new Vector2(0, ballForce), ForceMode2D.Impulse);
-            _ball = ball;
+            //_ball = ball;
         }
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class InputController : MonoBehaviour
 {
 
-    public int moveSpeed = 8;
+    int moveSpeed = 10;
 
     private void Start()
     {
