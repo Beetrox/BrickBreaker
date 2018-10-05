@@ -17,6 +17,7 @@ public class InputController : MonoBehaviour
         float cameraZ = cameraSize.z;
 
         transform.localScale = new Vector3(cameraX/5, cameraY/9, cameraZ);
+        transform.position = new Vector3(0, -cameraY+cameraY/6, 0);
     }
 
     void Update()
