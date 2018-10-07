@@ -9,27 +9,54 @@ public class GameManager : MonoBehaviour {
     Vector3 ballSpawnLocation = new Vector3(0, 0, 0);
     Vector3 inputSpawnLocation;
     public BallController ballController;
-    public BrickController bricksController;
+    public BrickController brickController;
     int ballForce = -6;
 
-    //private GameObject _ball;
-    //int ballHash;
-
-	// Use this for initialization
-	void Start ()
+    public int levelNumber = 1;
+    
+	void Start()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
-        bricksController.SetUpBricks();
+
+        Init();
+	}
+
+    void Init()
+    {
+        brickController.SetUpBricks(levelNumber);
         SpawnInput();
         SpawnNewBall();
-	}
+    }
 	
-	// Update is called once per frame
-	void Update ()
+	void Update()
     {
         //reset input position?
         SpawnNewBall();
         //Debug.Log(string.Format("Ball speed:{0}", _ball.GetComponentInChildren<Rigidbody2D>().velocity));
+
+        //if (!GameObject.FindGameObjectWithTag("Brick"))
+        //{
+        //    StartCoroutine("NextLevel");
+        //}
+    }
+
+    public IEnumerator NextLevel()
+    {
+        yield return new WaitForSeconds(1);
+        if (!GameObject.FindGameObjectWithTag("Brick"))
+        {
+            levelNumber++;
+            //Debug.Log(levelNumber);
+            if(levelNumber <= 10)
+            {
+                Debug.Log("set up next level");
+                brickController.SetUpBricks(levelNumber);
+            }
+            else
+            {
+                Debug.Log("YOU WON!");
+            }
+        }
     }
 
     void SpawnInput()
@@ -48,7 +75,7 @@ public class GameManager : MonoBehaviour {
 
     void SpawnNewBall()
     {
-        if (!GameObject.FindGameObjectWithTag("Ball"))
+        if(!GameObject.FindGameObjectWithTag("Ball"))
         {
             //Debug.Log("spawn");
             GameObject ball = Instantiate(ballPrefab, ballSpawnLocation, transform.rotation);

@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 1162550680}
   m_Layer: 0
   m_Name: Bricks
-  m_TagString: Untagged
+  m_TagString: Bricks
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -451,6 +451,8 @@ MonoBehaviour:
   gameManager: {fileID: 1914304407}
   ballPrefab: {fileID: 1641737354451900, guid: d951291a1879c9240a18d5174b5b93ac, type: 2}
   brickPrefab: {fileID: 1298005912168270, guid: dda26efed1d83ae4baa82ff959406f4b,
+    type: 2}
+  powerUpPrefab: {fileID: 1589450999686478, guid: e86d1c44bfd97e9429eae6adafc57663,
     type: 2}
 --- !u!4 &1162550681
 Transform:
@@ -679,7 +681,8 @@ MonoBehaviour:
   inputPrefab: {fileID: 1698864678120636, guid: 68b501302e0a3714aae9038c8f801562,
     type: 2}
   ballController: {fileID: 0}
-  bricksController: {fileID: 1162550680}
+  brickController: {fileID: 1162550680}
+  levelNumber: 1
 --- !u!4 &1914304408
 Transform:
   m_ObjectHideFlags: 0

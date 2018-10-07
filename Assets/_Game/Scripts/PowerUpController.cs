@@ -6,16 +6,6 @@ public class PowerUpController : MonoBehaviour
 {
     InputController inputController;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log("collided");
@@ -33,6 +23,4 @@ public class PowerUpController : MonoBehaviour
         }
         //inputController.PowerUpFlash();
     }
-
-
 }

@@ -8,19 +8,24 @@ public class Brick : MonoBehaviour {
     public GameObject explosion;
     public GameObject powerUpPrefab;
     public GameObject ball;
+    public GameObject bricks;
     public BallController ballController;
+    public BrickController brickController;
 
     BoxCollider2D boxCollider;
 
     int randomPowerUp;
-
-	// Use this for initialization
+    
 	void Start ()
     {
         boxCollider = gameObject.GetComponentInChildren<BoxCollider2D>();
 
         ball = GameObject.FindGameObjectWithTag("Ball");
         ballController = ball.GetComponent<BallController>();
+
+        bricks = GameObject.FindGameObjectWithTag("Bricks");
+        brickController = bricks.GetComponent<BrickController>();
+        //gameManager = 
 
         Vector2 size = new Vector2(Screen.width, Screen.height);
         Vector3 cameraSize = Camera.main.ScreenToWorldPoint(size);
@@ -30,42 +35,18 @@ public class Brick : MonoBehaviour {
         float cameraZ = cameraSize.z;
 
         transform.localScale = new Vector3(cameraX / 7f, cameraY / 16, cameraZ);
-
-        //Vector2 size = new Vector2(Screen.width, Screen.height);
-        //int screenWidth = Screen.width;
-        //int screenHeight = Screen.height;
-        //Vector3 cameraSize = Camera.main.ScreenToWorldPoint(size);
-
-        //transform.localScale = new Vector2((cameraSize * 1), 1);
-
-    }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        randomPowerUp = Random.Range(1, 4);
-        
         //Debug.Log("collided");
         if (collision.gameObject.tag == "Ball")
         {
             //Debug.Log("hit ball");
-            if (randomPowerUp == 1)
-            {
-                Debug.Log("power up 1 spawned");
-                Instantiate(powerUpPrefab, transform.position, powerUpPrefab.transform.rotation);
-            }
+            brickController.BrickDestroyed();
             Instantiate(explosion, transform.position, explosion.transform.rotation);
+            //StartCoroutine(gameManager.NextLevel());
             Destroy(gameObject, 0.05f);
         }
     }
-
-    //private void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    Debug.Log("Collision: " + gameObject.name);
-    //}
 }
