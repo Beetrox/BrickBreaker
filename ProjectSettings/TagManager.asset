@@ -9,6 +9,7 @@ TagManager:
   - Bottom
   - Input
   - Bricks
+  - Paddle
   layers:
   - Default
   - TransparentFX

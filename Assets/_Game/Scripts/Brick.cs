@@ -43,7 +43,8 @@ public class Brick : MonoBehaviour {
         if (collision.gameObject.tag == "Ball")
         {
             //Debug.Log("hit ball");
-            brickController.BrickDestroyed();
+            Vector3 position = transform.position;
+            brickController.BrickDestroyed(position);
             Instantiate(explosion, transform.position, explosion.transform.rotation);
             //StartCoroutine(gameManager.NextLevel());
             Destroy(gameObject, 0.05f);

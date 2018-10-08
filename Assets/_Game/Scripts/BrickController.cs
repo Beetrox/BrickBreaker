@@ -42,7 +42,7 @@ public class BrickController : MonoBehaviour {
         }
     }
 
-    public void BrickDestroyed()
+    public void BrickDestroyed(Vector3 position)
     {
 
         int randomPowerUp = Random.Range(1, 4);
@@ -51,7 +51,7 @@ public class BrickController : MonoBehaviour {
         {
             // make list of power ups and randomise from here
             Debug.Log("power up 1 spawned");
-            Instantiate(powerUpPrefab, transform.position, powerUpPrefab.transform.rotation);
+            Instantiate(powerUpPrefab, position, powerUpPrefab.transform.rotation);
         }
 
         gameManager.StartCoroutine("NextLevel");
