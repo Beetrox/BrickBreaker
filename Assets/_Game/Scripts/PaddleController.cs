@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputController : MonoBehaviour
+public class PaddleController : MonoBehaviour
 {
 
     int moveSpeed = 10;

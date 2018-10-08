@@ -5,9 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     public GameObject ballPrefab;
-    public GameObject inputPrefab;
+    public GameObject paddlePrefab;
     Vector3 ballSpawnLocation = new Vector3(0, 0, 0);
-    Vector3 inputSpawnLocation;
+    Vector3 paddleSpawnLocation;
     public BallController ballController;
     public BrickController brickController;
     int ballForce = -6;
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
     void Init()
     {
         brickController.SetUpBricks(levelNumber);
-        SpawnInput();
+        SpawnPaddle();
         SpawnNewBall();
     }
 	
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    void SpawnInput()
+    void SpawnPaddle()
     {
         Vector2 size = new Vector2(Screen.width, Screen.height);
         Vector3 cameraSize = Camera.main.ScreenToWorldPoint(size);
@@ -68,9 +68,9 @@ public class GameManager : MonoBehaviour {
         float cameraY = cameraSize.y;
         float cameraZ = cameraSize.z;
 
-        inputSpawnLocation = new Vector3(0, 0, 0);
+        paddleSpawnLocation = new Vector3(0, 0, 0);
 
-        GameObject input = Instantiate(inputPrefab, inputSpawnLocation, transform.rotation);
+        GameObject paddle = Instantiate(paddlePrefab, paddleSpawnLocation, transform.rotation);
     }
 
     void SpawnNewBall()

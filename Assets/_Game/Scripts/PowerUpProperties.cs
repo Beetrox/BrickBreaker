@@ -6,13 +6,7 @@ public class PowerUpProperties : MonoBehaviour {
     
 	void Start ()
     {
-
-        StartCoroutine("PowerUpTime");
-		
-	}
-
-	void Update () {
-		
+        StartCoroutine("PowerUpTime");	
 	}
 
     IEnumerator PowerUpTime()

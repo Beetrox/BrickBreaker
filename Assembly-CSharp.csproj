@@ -67,8 +67,8 @@
     <Compile Include="Assets\_Game\Scripts\CameraBorderController.cs" />
     <Compile Include="Assets\_Game\Scripts\ExplosionController.cs" />
     <Compile Include="Assets\_Game\Scripts\GameManager.cs" />
-    <Compile Include="Assets\_Game\Scripts\InputController.cs" />
     <Compile Include="Assets\_Game\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\_Game\Scripts\PaddleController.cs" />
     <Compile Include="Assets\_Game\Scripts\PowerUpController.cs" />
     <Compile Include="Assets\_Game\Scripts\PowerUpProperties.cs" />
     <Compile Include="Assets\_Game\Scripts\PUBigPaddle.cs" />

@@ -25,7 +25,6 @@ public class Brick : MonoBehaviour {
 
         bricks = GameObject.FindGameObjectWithTag("Bricks");
         brickController = bricks.GetComponent<BrickController>();
-        //gameManager = 
 
         Vector2 size = new Vector2(Screen.width, Screen.height);
         Vector3 cameraSize = Camera.main.ScreenToWorldPoint(size);

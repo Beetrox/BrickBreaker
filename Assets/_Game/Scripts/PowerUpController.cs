@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PowerUpController : MonoBehaviour
 {
-    InputController inputController;
+    PaddleController paddleController;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log("collided");
-        if (collision.gameObject.tag == "Input")
+        if (collision.gameObject.tag == "Paddle")
         {
             //Debug.Log("power up");
             // connect to FastBall()

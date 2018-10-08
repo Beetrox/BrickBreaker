@@ -421,52 +421,6 @@ MonoBehaviour:
   leftBorder: {fileID: 1225779701}
   rightBorder: {fileID: 233532426}
   bottomBorder: {fileID: 1611667774}
---- !u!1001 &981320389
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4323617708533288, guid: 68b501302e0a3714aae9038c8f801562, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4323617708533288, guid: 68b501302e0a3714aae9038c8f801562, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4323617708533288, guid: 68b501302e0a3714aae9038c8f801562, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4323617708533288, guid: 68b501302e0a3714aae9038c8f801562, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4323617708533288, guid: 68b501302e0a3714aae9038c8f801562, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4323617708533288, guid: 68b501302e0a3714aae9038c8f801562, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4323617708533288, guid: 68b501302e0a3714aae9038c8f801562, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4323617708533288, guid: 68b501302e0a3714aae9038c8f801562, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1808745392943226, guid: 68b501302e0a3714aae9038c8f801562, type: 2}
-      propertyPath: m_TagString
-      value: Paddle
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 68b501302e0a3714aae9038c8f801562, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &1162550679
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,7 +678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 1641737354451900, guid: d951291a1879c9240a18d5174b5b93ac, type: 2}
-  inputPrefab: {fileID: 1698864678120636, guid: 68b501302e0a3714aae9038c8f801562,
+  paddlePrefab: {fileID: 1698864678120636, guid: 68b501302e0a3714aae9038c8f801562,
     type: 2}
   ballController: {fileID: 0}
   brickController: {fileID: 1162550680}
