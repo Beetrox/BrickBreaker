@@ -50,7 +50,7 @@ public class BrickController : MonoBehaviour {
         if (randomPowerUp == 1)
         {
             // make list of power ups and randomise from here
-            Debug.Log("power up 1 spawned");
+            //Debug.Log("power up 1 spawned");
             Instantiate(powerUpPrefab, position, powerUpPrefab.transform.rotation);
         }
 

@@ -33,11 +33,6 @@ public class GameManager : MonoBehaviour {
         //reset input position?
         SpawnNewBall();
         //Debug.Log(string.Format("Ball speed:{0}", _ball.GetComponentInChildren<Rigidbody2D>().velocity));
-
-        //if (!GameObject.FindGameObjectWithTag("Brick"))
-        //{
-        //    StartCoroutine("NextLevel");
-        //}
     }
 
     public IEnumerator NextLevel()
@@ -49,7 +44,7 @@ public class GameManager : MonoBehaviour {
             //Debug.Log(levelNumber);
             if(levelNumber <= 10)
             {
-                Debug.Log("set up next level");
+                //Debug.Log("set up next level");
                 brickController.SetUpBricks(levelNumber);
             }
             else
@@ -87,8 +82,8 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void DestroyObject(GameObject gameObject)
-    {
-        Destroy(gameObject.transform.parent.gameObject);
-    }
+    //public void DestroyObject(GameObject gameObject)
+    //{
+    //    Destroy(gameObject.transform.parent.gameObject);
+    //}
 }

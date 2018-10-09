@@ -13,4 +13,9 @@ public class PUBigPaddle : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    void MakeBigger()
+    {
+        // make game object bigger
+    }
 }

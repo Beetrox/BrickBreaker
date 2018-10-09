@@ -12,9 +12,19 @@ public class BallController : MonoBehaviour
 
     void Start()
     {
+        Vector2 size = new Vector2(Screen.width, Screen.height);
+        Vector3 cameraSize = Camera.main.ScreenToWorldPoint(size);
+
+        float cameraX = cameraSize.x;
+        float cameraY = cameraSize.y;
+        float cameraZ = cameraSize.z;
+
+        float ballDiameter = cameraX / 13;
+
         rigidbody = gameObject.GetComponentInChildren<Rigidbody2D>() as Rigidbody2D;
-        Vector3 size = new Vector3(0.7f, 0.7f, 0.7f);
-        LeanTween.scale(gameObject, size, 0.15f).setEaseInQuad();
+        //Vector3 ballSize = new Vector3(ballDiameter, ballDiameter, ballDiameter);
+        transform.localScale = new Vector3(ballDiameter, ballDiameter, ballDiameter);
+        LeanTween.scale(gameObject, transform.localScale, 0.15f).setEaseInQuad();
     }
 
     void Update()
