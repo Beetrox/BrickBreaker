@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212054902093579044}
   - component: {fileID: 61430166028806682}
   - component: {fileID: 50271971636473214}
-  - component: {fileID: 114709355049865772}
+  - component: {fileID: 114317358451384856}
   m_Layer: 0
   m_Name: PUBigPaddle
   m_TagString: Untagged
@@ -88,7 +88,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114709355049865772
+--- !u!114 &114317358451384856
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,10 +96,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1245317906193584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59ac609a13a9b504a9534ce8806ed21f, type: 3}
+  m_Script: {fileID: 11500000, guid: b9c0527c103379a44a05e1bbe4a35bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpPrefabs: []
 --- !u!212 &212054902093579044
 SpriteRenderer:
   m_ObjectHideFlags: 1
