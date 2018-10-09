@@ -24,7 +24,8 @@ public class BallController : MonoBehaviour
         rigidbody = gameObject.GetComponentInChildren<Rigidbody2D>() as Rigidbody2D;
         //Vector3 ballSize = new Vector3(ballDiameter, ballDiameter, ballDiameter);
         transform.localScale = new Vector3(ballDiameter, ballDiameter, ballDiameter);
-        LeanTween.scale(gameObject, transform.localScale, 0.15f).setEaseInQuad();
+        Vector3 growSize = transform.localScale;
+        LeanTween.scale(gameObject, growSize, 0.15f).setEaseInQuad();
     }
 
     void Update()

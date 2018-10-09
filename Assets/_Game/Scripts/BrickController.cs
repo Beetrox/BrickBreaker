@@ -7,8 +7,11 @@ public class BrickController : MonoBehaviour {
     public GameManager gameManager;
     public GameObject ballPrefab;
     public GameObject brickPrefab;
-    public GameObject powerUpPrefab;
+    public GameObject powerUpBigPaddle;
+    public GameObject powerUpBigBall;
     GameObject brick;
+
+    public List<GameObject> powerUpPrefabs = new List<GameObject>();
 
     public void SetUpBricks(int levelNumber)
     {
@@ -45,13 +48,17 @@ public class BrickController : MonoBehaviour {
     public void BrickDestroyed(Vector3 position)
     {
 
-        int randomPowerUp = Random.Range(1, 4);
+        int randomPowerUp = Random.Range(1, 3);
 
         if (randomPowerUp == 1)
         {
             // make list of power ups and randomise from here
             //Debug.Log("power up 1 spawned");
-            Instantiate(powerUpPrefab, position, powerUpPrefab.transform.rotation);
+            //int random = Random.Range(1, 2);
+            //Instantiate(powerUpBigPaddle, position, powerUpBigPaddle.transform.rotation);
+            int random = Random.Range(0, 2);
+            Debug.Log(random);
+            Instantiate(powerUpPrefabs[random], position, powerUpBigPaddle.transform.rotation);
         }
 
         gameManager.StartCoroutine("NextLevel");

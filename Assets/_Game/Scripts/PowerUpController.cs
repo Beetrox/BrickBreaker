@@ -5,6 +5,7 @@ using UnityEngine;
 public class PowerUpController : MonoBehaviour
 {
     PaddleController paddleController;
+    public List<GameObject> powerUpPrefabs = new List<GameObject>();
 
     private void Start()
     {

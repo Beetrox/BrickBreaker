@@ -452,8 +452,13 @@ MonoBehaviour:
   ballPrefab: {fileID: 1641737354451900, guid: d951291a1879c9240a18d5174b5b93ac, type: 2}
   brickPrefab: {fileID: 1298005912168270, guid: dda26efed1d83ae4baa82ff959406f4b,
     type: 2}
-  powerUpPrefab: {fileID: 1589450999686478, guid: e86d1c44bfd97e9429eae6adafc57663,
+  powerUpBigPaddle: {fileID: 1245317906193584, guid: d01dcebfd2eec7245b41aab586dbbd45,
     type: 2}
+  powerUpBigBall: {fileID: 1249642978759122, guid: df21e8ff517010c4ebbdc4db193bfc1f,
+    type: 2}
+  powerUpPrefabs:
+  - {fileID: 1245317906193584, guid: d01dcebfd2eec7245b41aab586dbbd45, type: 2}
+  - {fileID: 1249642978759122, guid: df21e8ff517010c4ebbdc4db193bfc1f, type: 2}
 --- !u!4 &1162550681
 Transform:
   m_ObjectHideFlags: 0
