@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PUBigPaddle : MonoBehaviour {
+public class PUBigPaddle : MonoBehaviour
+{
+    GameObject paddle;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +23,11 @@ public class PUBigPaddle : MonoBehaviour {
         {
             //Debug.Log("power up");
             // connect to FastBall()
+            paddle = GameObject.FindGameObjectWithTag("Paddle");
+            Vector3 baseSize = paddle.GetComponent<BoxCollider2D>().bounds.size;
+            float paddleWidth = baseSize.x;
+            paddle.transform.localScale += new Vector3(paddleWidth, paddleWidth, paddleWidth);
+            //paddle.transform.localScale = new Vector3(size*1.2, ;
             Destroy(gameObject, 0.05f);
         }
 

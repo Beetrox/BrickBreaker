@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
-
+public class GameManager : MonoBehaviour
+{
     public GameObject ballPrefab;
     public GameObject paddlePrefab;
     Vector3 ballSpawnLocation = new Vector3(0, 0, 0);

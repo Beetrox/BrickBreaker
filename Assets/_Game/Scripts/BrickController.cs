@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrickController : MonoBehaviour {
-
+public class BrickController : MonoBehaviour
+{
     public GameManager gameManager;
     public GameObject ballPrefab;
     public GameObject brickPrefab;

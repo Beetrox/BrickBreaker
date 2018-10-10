@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUpProperties : MonoBehaviour {
-    
+public class PowerUpProperties : MonoBehaviour
+{
 	void Start ()
     {
         StartCoroutine("PowerUpTime");	
