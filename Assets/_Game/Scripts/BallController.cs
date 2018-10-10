@@ -5,7 +5,7 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     public GameManager gameManager;
-    //public bool hasPowerUp = false;
+    public bool hasPowerUp = false;
 
     Rigidbody2D rigidbody;
     //Vector2 constantVelocity = new Vector2(1f, 1f);

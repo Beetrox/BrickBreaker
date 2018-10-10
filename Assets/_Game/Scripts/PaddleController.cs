@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PaddleController : MonoBehaviour
 {
-
     int moveSpeed = 10;
+    public bool hasPowerUp = false;
 
     private void Start()
     {

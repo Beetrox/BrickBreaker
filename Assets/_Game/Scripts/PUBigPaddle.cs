@@ -25,21 +25,32 @@ public class PUBigPaddle : MonoBehaviour
 
     IEnumerator ExecutePowerUp()
     {
-        Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
-        rigidbody2D.velocity = new Vector2(0, 0);
-        rigidbody2D.gravityScale = 0;
         paddle = GameObject.FindGameObjectWithTag("Paddle");
-        Vector3 baseSize = paddle.transform.localScale;
-        Debug.Log(baseSize);
-        float paddleX = baseSize.x;
-        float newWidth = paddleX / 3;
-        paddle.transform.localScale += new Vector3(newWidth, 0, 0);
-        Debug.Log(paddle.transform.localScale);
-        gameObject.transform.localScale = new Vector3(0, 0, 0);
+        PaddleController paddleController = paddle.GetComponent<PaddleController>();
 
-        yield return new WaitForSeconds(powerUpTime);
-        paddle.transform.localScale = baseSize;
-        Debug.Log(paddle.transform.localScale);
-        Destroy(gameObject);
+        if (!paddleController.hasPowerUp)
+        {
+            Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
+            rigidbody2D.velocity = new Vector2(0, 0);
+            rigidbody2D.gravityScale = 0;
+            paddleController.hasPowerUp = true;
+            Vector3 baseSize = paddle.transform.localScale;
+            Debug.Log(baseSize);
+            float paddleX = baseSize.x;
+            float newWidth = paddleX / 3;
+            paddle.transform.localScale += new Vector3(newWidth, 0, 0);
+            Debug.Log(paddle.transform.localScale);
+            gameObject.transform.localScale = new Vector3(0, 0, 0);
+
+            yield return new WaitForSeconds(powerUpTime);
+            paddle.transform.localScale = baseSize;
+            paddleController.hasPowerUp = false;
+            Debug.Log(paddle.transform.localScale);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
