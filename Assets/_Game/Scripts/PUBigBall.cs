@@ -5,6 +5,7 @@ using UnityEngine;
 public class PUBigBall : MonoBehaviour
 {
     GameObject ball;
+    int powerUpTime = 5;
 
 	// Use this for initialization
 	void Start ()
@@ -23,14 +24,15 @@ public class PUBigBall : MonoBehaviour
         //Debug.Log("collided");
         if (collision.gameObject.tag == "Paddle")
         {
+            StartCoroutine("ExecutePowerUp");
             //Debug.Log("power up");
             // connect to FastBall()
-            ball = GameObject.FindGameObjectWithTag("Ball");
-            Vector3 baseSize = ball.GetComponent<CircleCollider2D>().bounds.size;
-            float ballDiameter = baseSize.x*1.2f;
-            ball.transform.localScale += new Vector3(ballDiameter, ballDiameter, ballDiameter);
-            //ball.transform.localScale = new Vector3(1, 1, 1);
-            Destroy(gameObject, 0.05f);
+            //ball = GameObject.FindGameObjectWithTag("Ball");
+            //Vector3 baseSize = ball.GetComponent<CircleCollider2D>().bounds.size;
+            //float ballDiameter = baseSize.x*1.2f;
+            //ball.transform.localScale += new Vector3(ballDiameter, ballDiameter, ballDiameter);
+            ////ball.transform.localScale = new Vector3(1, 1, 1);
+            //Destroy(gameObject, 0.05f);
         }
 
         if (collision.gameObject.tag == "Bottom")
@@ -41,9 +43,19 @@ public class PUBigBall : MonoBehaviour
         //inputController.PowerUpFlash();
     }
 
-    //IEnumerator ExecuteAndWait()
-    //{
-    //    yield return new WaitForSeconds(5);
-    //    Destroy
-    //}
+    IEnumerator ExecutePowerUp()
+    {
+        Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
+        rigidbody2D.velocity = new Vector2(0, 0);
+        rigidbody2D.gravityScale = 0;
+        ball = GameObject.FindGameObjectWithTag("Ball");
+        Vector3 baseSize = ball.GetComponent<CircleCollider2D>().bounds.size;
+        float ballDiameter = baseSize.x * 1.2f;
+        ball.transform.localScale += new Vector3(ballDiameter, ballDiameter, ballDiameter);
+        gameObject.transform.localScale = new Vector3(0, 0, 0);
+
+        yield return new WaitForSeconds(powerUpTime);
+        ball.transform.localScale += baseSize;
+        Destroy(gameObject);
+    }
 }
