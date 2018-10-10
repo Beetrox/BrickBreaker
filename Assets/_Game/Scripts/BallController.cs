@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     public GameManager gameManager;
+    //public bool hasPowerUp = false;
 
     Rigidbody2D rigidbody;
     //Vector2 constantVelocity = new Vector2(1f, 1f);
@@ -24,6 +25,7 @@ public class BallController : MonoBehaviour
         rigidbody = gameObject.GetComponentInChildren<Rigidbody2D>() as Rigidbody2D;
         //Vector3 ballSize = new Vector3(ballDiameter, ballDiameter, ballDiameter);
         transform.localScale = new Vector3(ballDiameter, ballDiameter, ballDiameter);
+        //Debug.Log(transform.localScale);
         Vector3 growSize = transform.localScale;
         LeanTween.scale(gameObject, growSize, 0.15f).setEaseInQuad();
     }

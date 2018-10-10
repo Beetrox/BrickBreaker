@@ -6,18 +6,7 @@ public class PUBigBall : MonoBehaviour
 {
     GameObject ball;
     int powerUpTime = 5;
-
-	// Use this for initialization
-	void Start ()
-    {
-
-    }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
+    public BallController ballController;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,14 +14,6 @@ public class PUBigBall : MonoBehaviour
         if (collision.gameObject.tag == "Paddle")
         {
             StartCoroutine("ExecutePowerUp");
-            //Debug.Log("power up");
-            // connect to FastBall()
-            //ball = GameObject.FindGameObjectWithTag("Ball");
-            //Vector3 baseSize = ball.GetComponent<CircleCollider2D>().bounds.size;
-            //float ballDiameter = baseSize.x*1.2f;
-            //ball.transform.localScale += new Vector3(ballDiameter, ballDiameter, ballDiameter);
-            ////ball.transform.localScale = new Vector3(1, 1, 1);
-            //Destroy(gameObject, 0.05f);
         }
 
         if (collision.gameObject.tag == "Bottom")
@@ -45,17 +26,31 @@ public class PUBigBall : MonoBehaviour
 
     IEnumerator ExecutePowerUp()
     {
-        Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
-        rigidbody2D.velocity = new Vector2(0, 0);
-        rigidbody2D.gravityScale = 0;
-        ball = GameObject.FindGameObjectWithTag("Ball");
-        Vector3 baseSize = ball.GetComponent<CircleCollider2D>().bounds.size;
-        float ballDiameter = baseSize.x * 1.2f;
-        ball.transform.localScale += new Vector3(ballDiameter, ballDiameter, ballDiameter);
-        gameObject.transform.localScale = new Vector3(0, 0, 0);
+        //if(!ballController.hasPowerUp)
+        //{ 
+            Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
+            rigidbody2D.velocity = new Vector2(0, 0);
+            rigidbody2D.gravityScale = 0;
+            ball = GameObject.FindGameObjectWithTag("Ball");
+            //ballController = ball.GetComponent<BallController>();
+            //ballController.hasPowerUp = true;
+            Vector3 baseSize = ball.transform.localScale;
+            //Debug.Log(baseSize);
+            float ballDiameter = baseSize.x;
+            float newSize = ballDiameter / 2;
+            ball.transform.localScale += new Vector3(newSize, newSize, newSize);
+            //Debug.Log(ball.transform.localScale);
+            gameObject.transform.localScale = new Vector3(0, 0, 0);
 
-        yield return new WaitForSeconds(powerUpTime);
-        ball.transform.localScale += baseSize;
-        Destroy(gameObject);
+            yield return new WaitForSeconds(powerUpTime);
+            ball.transform.localScale = baseSize;
+            //ballController.hasPowerUp = false;
+            //Debug.Log(ball.transform.localScale);
+            Destroy(gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 }
