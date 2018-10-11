@@ -16,7 +16,7 @@ public class CameraBorderController : MonoBehaviour {
         Vector2 size = new Vector2(Screen.width, Screen.height);
         Vector3 cameraSize = Camera.main.ScreenToWorldPoint(size);
 
-        Debug.Log(cameraSize);
+        //Debug.Log(cameraSize);
 
         //placing camera borders relative to camera size
 

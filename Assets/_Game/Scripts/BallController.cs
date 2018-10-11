@@ -49,6 +49,7 @@ public class BallController : MonoBehaviour
         {
             //Debug.Log("hit bottom");
             //gameManager.DestroyObject(gameObject);
+            //gameManager.StartCoroutine("SpawnNewBall()");
             Destroy(gameObject.transform.parent.gameObject);
         }
     }

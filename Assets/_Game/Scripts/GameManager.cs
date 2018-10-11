@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
     Vector3 paddleSpawnLocation;
     public BallController ballController;
     public BrickController brickController;
+    PaddleController paddleController;
     int ballForce = -6;
+    int finalLevel = 10;
 
     public int levelNumber = 1;
     
@@ -25,13 +27,14 @@ public class GameManager : MonoBehaviour
     {
         brickController.SetUpBricks(levelNumber);
         SpawnPaddle();
-        SpawnNewBall();
+        //StartCoroutine("SpawnNewBall");
+        //SpawnNewBall();
     }
 	
 	void Update()
     {
         //reset input position?
-        SpawnNewBall();
+        //SpawnNewBall();
         //Debug.Log(string.Format("Ball speed:{0}", _ball.GetComponentInChildren<Rigidbody2D>().velocity));
     }
 
@@ -42,7 +45,7 @@ public class GameManager : MonoBehaviour
         {
             levelNumber++;
             //Debug.Log(levelNumber);
-            if(levelNumber <= 10)
+            if(levelNumber <= finalLevel)
             {
                 //Debug.Log("set up next level");
                 brickController.SetUpBricks(levelNumber);
@@ -66,21 +69,25 @@ public class GameManager : MonoBehaviour
         paddleSpawnLocation = new Vector3(0, 0, 0);
 
         GameObject paddle = Instantiate(paddlePrefab, paddleSpawnLocation, transform.rotation);
+
+        //paddleController = paddle.GetComponent<PaddleController>();
+        //paddleController.SpawnNewBall();
     }
 
-    void SpawnNewBall()
-    {
-        if(!GameObject.FindGameObjectWithTag("Ball"))
-        {
-            //Debug.Log("spawn");
-            GameObject ball = Instantiate(ballPrefab, ballSpawnLocation, transform.rotation);
-            //ballController.gameManager = this;
-            //ball.tag = "Ball";
-            Rigidbody2D rigidbody = (Rigidbody2D)ball.GetComponentInChildren(typeof(Rigidbody2D));
-            rigidbody.AddForce(new Vector2(0, ballForce), ForceMode2D.Impulse);
-            //_ball = ball;
-        }
-    }
+    //void SpawnNewBall()
+    //{
+    //    if (!GameObject.FindGameObjectWithTag("Ball"))
+    //    {
+    //        //Debug.Log("spawn");
+    //        GameObject ball = Instantiate(ballPrefab, ballSpawnLocation, transform.rotation);
+    //        //ballController.gameManager = this;
+    //        //ball.tag = "Ball";
+    //        Rigidbody2D rigidbody = (Rigidbody2D)ball.GetComponentInChildren(typeof(Rigidbody2D));
+    //        rigidbody.AddForce(new Vector2(0, ballForce), ForceMode2D.Impulse);
+    //        //_ball = ball;
+    //        //yield return null;
+    //    }
+    //}
 
     //public void DestroyObject(GameObject gameObject)
     //{

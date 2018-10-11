@@ -20,8 +20,8 @@ public class Brick : MonoBehaviour
     {
         boxCollider = gameObject.GetComponentInChildren<BoxCollider2D>();
 
-        ball = GameObject.FindGameObjectWithTag("Ball");
-        ballController = ball.GetComponent<BallController>();
+        //ball = GameObject.FindGameObjectWithTag("Ball");
+        //ballController = ball.GetComponent<BallController>();
 
         bricks = GameObject.FindGameObjectWithTag("Bricks");
         brickController = bricks.GetComponent<BrickController>();
