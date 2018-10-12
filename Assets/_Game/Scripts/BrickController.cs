@@ -57,7 +57,7 @@ public class BrickController : MonoBehaviour
             //int random = Random.Range(1, 2);
             //Instantiate(powerUpBigPaddle, position, powerUpBigPaddle.transform.rotation);
             int random = Random.Range(0, 2);
-            Debug.Log(random);
+            //Debug.Log(random);
             Instantiate(powerUpPrefabs[random], position, powerUpBigPaddle.transform.rotation);
         }
 

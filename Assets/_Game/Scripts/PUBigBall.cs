@@ -28,7 +28,7 @@ public class PUBigBall : MonoBehaviour
         ball = GameObject.FindGameObjectWithTag("Ball");
         BallController ballController = ball.GetComponent<BallController>();
 
-        if (!ballController.hasPowerUp)
+        if (ball != null && !ballController.hasPowerUp)
         {
             Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
             rigidbody2D.velocity = new Vector2(0, 0);

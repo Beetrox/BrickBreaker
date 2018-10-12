@@ -8,6 +8,7 @@ public class PaddleController : MonoBehaviour
     public GameObject ballPrefab;
     GameObject ball;
 
+    bool ballReleased = false;
     int moveSpeed = 10;
     public bool hasPowerUp = false;
 
@@ -28,7 +29,8 @@ public class PaddleController : MonoBehaviour
         transform.position = new Vector3(0, -cameraY+cameraY/6, 0);
 
         //spawn ball from here
-        SpawnNewBall();
+        //SpawnNewBall();
+        StartCoroutine("SpawnNewBall");
     }
 
     void Update()
@@ -61,40 +63,77 @@ public class PaddleController : MonoBehaviour
             }
         }
 
-        if (GameObject.FindGameObjectWithTag("Ball"))
+        if (ball && !ballReleased)
         {
-            if (Input.GetButtonDown("Jump"))
+            //Rigidbody2D ballRigidbody = ball.GetComponent<Rigidbody2D>();
+            ball.transform.position = gameObject.transform.position + new Vector3(0, 1, 0);
+
+
+            //for keyboard input
+            //if (Input.GetButtonDown("Jump"))
+            //{
+            //    //Debug.Log("release ball");
+            //    ball.GetComponentInChildren<Rigidbody2D>().AddForce(new Vector2(0, 6f), ForceMode2D.Impulse);
+            //    ballReleased = true;
+            //}
+
+            //for touch input
+            foreach (Touch touch in Input.touches)
             {
-                Debug.Log("release ball");
-                ball.GetComponentInChildren<Rigidbody2D>().AddForce(new Vector2(0, 6), ForceMode2D.Impulse);
+
+                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+                touchPosition.z = 0;
+
+                RaycastHit2D hit = Physics2D.Raycast(touchPosition, Vector2.zero);
+
+                {
+                    if (hit.collider != null && hit.collider.tag == "Ball")
+                    {
+                        Debug.Log("release ball");
+                        ball.GetComponentInChildren<Rigidbody2D>().AddForce(new Vector2(0, 6f), ForceMode2D.Impulse);
+                        ballReleased = true;
+                    }
+                }
             }
         }
     }
 
-    public void SpawnNewBall()
+    //public void SpawnNewBall()
+    //{
+    //    if (!GameObject.FindGameObjectWithTag("Ball"))
+    //    {
+    //        Vector3 ballSpawnLocation = gameObject.transform.position + new Vector3(0, 1, 0);
+    //        //Debug.Log("spawn");
+    //        ball = Instantiate(ballPrefab, ballSpawnLocation, transform.rotation);
+    //        //ballController.gameManager = this;
+    //        //ball.tag = "Ball";
+    //        //Rigidbody2D rigidbody = (Rigidbody2D)ball.GetComponentInChildren(typeof(Rigidbody2D));
+    //        //rigidbody.AddForce(new Vector2(0, ballForce), ForceMode2D.Impulse);
+    //        //_ball = ball;
+    //        //yield return null;
+    //    }
+    //}
+
+    IEnumerator SpawnNewBall()
     {
+        yield return new WaitForSeconds(1);
         if (!GameObject.FindGameObjectWithTag("Ball"))
         {
             Vector3 ballSpawnLocation = gameObject.transform.position + new Vector3(0, 1, 0);
             //Debug.Log("spawn");
             ball = Instantiate(ballPrefab, ballSpawnLocation, transform.rotation);
-            //ballController.gameManager = this;
-            //ball.tag = "Ball";
-            //Rigidbody2D rigidbody = (Rigidbody2D)ball.GetComponentInChildren(typeof(Rigidbody2D));
-            //rigidbody.AddForce(new Vector2(0, ballForce), ForceMode2D.Impulse);
-            //_ball = ball;
-            //yield return null;
+            ballReleased = false;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collided");
+        //Debug.Log("collided");
         foreach(ContactPoint2D contactPoint in collision.contacts)
         {
             if(collision.transform.tag == "Ball")
             {
-                Debug.Log("collided ball");
+                //Debug.Log("collided ball");
                 Vector2 hitpoint = contactPoint.point;
                 float calc = hitpoint.x - transform.position.x;
                 contactPoint.collider.GetComponent<Rigidbody2D>().AddForce(new Vector2(10, 0));

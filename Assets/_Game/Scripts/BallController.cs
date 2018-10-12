@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     public GameManager gameManager;
+    PaddleController paddleController;
     public bool hasPowerUp = false;
 
     Rigidbody2D rigidbody;
@@ -28,6 +29,9 @@ public class BallController : MonoBehaviour
         //Debug.Log(transform.localScale);
         Vector3 growSize = transform.localScale;
         LeanTween.scale(gameObject, growSize, 0.15f).setEaseInQuad();
+
+        GameObject paddle = GameObject.FindGameObjectWithTag("Paddle");
+        paddleController = paddle.GetComponent<PaddleController>();
     }
 
     void Update()
@@ -50,6 +54,7 @@ public class BallController : MonoBehaviour
             //Debug.Log("hit bottom");
             //gameManager.DestroyObject(gameObject);
             //gameManager.StartCoroutine("SpawnNewBall()");
+            paddleController.StartCoroutine("SpawnNewBall");
             Destroy(gameObject.transform.parent.gameObject);
         }
     }
