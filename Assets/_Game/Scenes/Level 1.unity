@@ -456,9 +456,11 @@ MonoBehaviour:
     type: 2}
   powerUpBigBall: {fileID: 1249642978759122, guid: df21e8ff517010c4ebbdc4db193bfc1f,
     type: 2}
+  powerUpSmallPaddle: {fileID: 0}
   powerUpPrefabs:
   - {fileID: 1245317906193584, guid: d01dcebfd2eec7245b41aab586dbbd45, type: 2}
   - {fileID: 1249642978759122, guid: df21e8ff517010c4ebbdc4db193bfc1f, type: 2}
+  - {fileID: 1386613519490704, guid: 879dbe074322d04429118a26ff0a0371, type: 2}
 --- !u!4 &1162550681
 Transform:
   m_ObjectHideFlags: 0

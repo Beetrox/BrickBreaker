@@ -9,6 +9,8 @@ public class BrickController : MonoBehaviour
     public GameObject brickPrefab;
     public GameObject powerUpBigPaddle;
     public GameObject powerUpBigBall;
+    public GameObject powerUpSmallPaddle;
+    public ScoreController scoreController;
     GameObject brick;
 
     public List<GameObject> powerUpPrefabs = new List<GameObject>();
@@ -47,6 +49,8 @@ public class BrickController : MonoBehaviour
 
     public void BrickDestroyed(Vector3 position)
     {
+        scoreController.score++;
+        //scoreController.SetScore(newScore);
 
         int randomPowerUp = Random.Range(1, 3);
 
@@ -56,7 +60,7 @@ public class BrickController : MonoBehaviour
             //Debug.Log("power up 1 spawned");
             //int random = Random.Range(1, 2);
             //Instantiate(powerUpBigPaddle, position, powerUpBigPaddle.transform.rotation);
-            int random = Random.Range(0, 2);
+            int random = Random.Range(0, 3);
             //Debug.Log(random);
             Instantiate(powerUpPrefabs[random], position, powerUpBigPaddle.transform.rotation);
         }

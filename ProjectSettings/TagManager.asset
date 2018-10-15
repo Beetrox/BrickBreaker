@@ -10,6 +10,7 @@ TagManager:
   - Input
   - Bricks
   - Paddle
+  - GameManager
   layers:
   - Default
   - TransparentFX

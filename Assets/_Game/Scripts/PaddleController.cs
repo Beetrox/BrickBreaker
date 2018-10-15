@@ -68,15 +68,6 @@ public class PaddleController : MonoBehaviour
             //Rigidbody2D ballRigidbody = ball.GetComponent<Rigidbody2D>();
             ball.transform.position = gameObject.transform.position + new Vector3(0, 1, 0);
 
-
-            //for keyboard input
-            //if (Input.GetButtonDown("Jump"))
-            //{
-            //    //Debug.Log("release ball");
-            //    ball.GetComponentInChildren<Rigidbody2D>().AddForce(new Vector2(0, 6f), ForceMode2D.Impulse);
-            //    ballReleased = true;
-            //}
-
             //for touch input
             foreach (Touch touch in Input.touches)
             {
@@ -95,6 +86,14 @@ public class PaddleController : MonoBehaviour
                     }
                 }
             }
+
+            //for keyboard input
+            //if (Input.GetButtonDown("Jump"))
+            //{
+            //    //Debug.Log("release ball");
+            //    ball.GetComponentInChildren<Rigidbody2D>().AddForce(new Vector2(0, 6f), ForceMode2D.Impulse);
+            //    ballReleased = true;
+            //}
         }
     }
 
@@ -114,7 +113,7 @@ public class PaddleController : MonoBehaviour
     //    }
     //}
 
-    IEnumerator SpawnNewBall()
+    public IEnumerator SpawnNewBall()
     {
         yield return new WaitForSeconds(1);
         if (!GameObject.FindGameObjectWithTag("Ball"))
@@ -136,7 +135,7 @@ public class PaddleController : MonoBehaviour
                 //Debug.Log("collided ball");
                 Vector2 hitpoint = contactPoint.point;
                 float calc = hitpoint.x - transform.position.x;
-                contactPoint.collider.GetComponent<Rigidbody2D>().AddForce(new Vector2(10, 0));
+                contactPoint.collider.GetComponent<Rigidbody2D>().AddForce(new Vector2(70, 0) * calc);
             }
         }
     }

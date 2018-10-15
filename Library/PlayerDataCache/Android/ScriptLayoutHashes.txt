@@ -222,7 +222,7 @@ ae4ab84422e487c1a533a42e2eecf774 Assembly-CSharp.dll:.TestingIssue2
 7e7ee21ab8ff1f2eb206565d6caa2bfd Assembly-CSharp.dll:TMPro.Examples.VertexShakeB
 eabb14b55dc317646709e1aaab0543fb Assembly-CSharp.dll:TMPro.Examples.Benchmark02
 9ecabe4a6b0b699f4890bde3b3e4b3b9 Assembly-CSharp.dll:TMPro.Examples.TMP_UiFrameRateCounter
-84105293bc70b86a668559b9d6d80af5 Assembly-CSharp.dll:.PaddleController
+544117d9d73a3b5de9a20bf655ee31a9 Assembly-CSharp.dll:.PaddleController
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:TMPro.Examples.VertexColorCycler
 7e7ee21ab8ff1f2eb206565d6caa2bfd Assembly-CSharp.dll:TMPro.Examples.VertexZoom
 9492fe9d8624728b566776261576ee68 Assembly-CSharp.dll:.CameraBorderController

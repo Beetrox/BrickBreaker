@@ -43,10 +43,13 @@ public class PUBigBall : MonoBehaviour
             gameObject.transform.localScale = new Vector3(0, 0, 0);
 
             yield return new WaitForSeconds(powerUpTime);
-            ball.transform.localScale = baseSize;
-            ballController.hasPowerUp = false;
-            //Debug.Log(ball.transform.localScale);
-            Destroy(gameObject);
+            if (ball != null)
+            {
+                ball.transform.localScale = baseSize;
+                ballController.hasPowerUp = false;
+                //Debug.Log(ball.transform.localScale);
+                Destroy(gameObject);
+            }
         }
         else
         {

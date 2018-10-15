@@ -46,6 +46,7 @@ public class Brick : MonoBehaviour
             brickController.BrickDestroyed(position);
             Instantiate(explosion, transform.position, explosion.transform.rotation);
             //StartCoroutine(gameManager.NextLevel());
+
             Destroy(gameObject, 0.05f);
         }
     }

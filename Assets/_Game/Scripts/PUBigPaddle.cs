@@ -39,13 +39,13 @@ public class PUBigPaddle : MonoBehaviour
             float paddleX = baseSize.x;
             float newWidth = paddleX / 3;
             paddle.transform.localScale += new Vector3(newWidth, 0, 0);
-            Debug.Log(paddle.transform.localScale);
+            //Debug.Log(paddle.transform.localScale);
             gameObject.transform.localScale = new Vector3(0, 0, 0);
 
             yield return new WaitForSeconds(powerUpTime);
             paddle.transform.localScale = baseSize;
             paddleController.hasPowerUp = false;
-            Debug.Log(paddle.transform.localScale);
+            //Debug.Log(paddle.transform.localScale);
             Destroy(gameObject);
         }
         else
