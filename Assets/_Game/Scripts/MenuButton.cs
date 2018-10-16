@@ -8,7 +8,6 @@ public class MenuButton : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        //SceneManager.LoadScene("MainMenu");
         //Debug.Log("menu");
     }
 	
@@ -16,4 +15,9 @@ public class MenuButton : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
