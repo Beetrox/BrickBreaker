@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4323617708533288}
-  - component: {fileID: 114136695001205500}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Untagged
@@ -149,20 +148,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114136695001205500
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1698864678120636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7262bd2d3a0a8be4a871968a4af6b863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  ballPrefab: {fileID: 1641737354451900, guid: d951291a1879c9240a18d5174b5b93ac, type: 2}
-  hasPowerUp: 0
 --- !u!114 &114739355394242522
 MonoBehaviour:
   m_ObjectHideFlags: 1

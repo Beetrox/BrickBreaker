@@ -24,7 +24,7 @@ public class PaddleController : MonoBehaviour
         float cameraY = cameraSize.y;
         float cameraZ = cameraSize.z;
 
-        transform.localScale = new Vector3(cameraX/5, cameraY/9, cameraZ);
+        transform.localScale = new Vector3(cameraX/3, cameraY/13, cameraZ);
         //Debug.Log(transform.localScale);
         transform.position = new Vector3(0, -cameraY+cameraY/6, 0);
 
@@ -66,7 +66,7 @@ public class PaddleController : MonoBehaviour
         if (ball && !ballReleased)
         {
             //Rigidbody2D ballRigidbody = ball.GetComponent<Rigidbody2D>();
-            ball.transform.position = gameObject.transform.position + new Vector3(0, 1, 0);
+            ball.transform.position = BallSpawnPosition();
 
             //for touch input
             foreach (Touch touch in Input.touches)
@@ -97,32 +97,23 @@ public class PaddleController : MonoBehaviour
         }
     }
 
-    //public void SpawnNewBall()
-    //{
-    //    if (!GameObject.FindGameObjectWithTag("Ball"))
-    //    {
-    //        Vector3 ballSpawnLocation = gameObject.transform.position + new Vector3(0, 1, 0);
-    //        //Debug.Log("spawn");
-    //        ball = Instantiate(ballPrefab, ballSpawnLocation, transform.rotation);
-    //        //ballController.gameManager = this;
-    //        //ball.tag = "Ball";
-    //        //Rigidbody2D rigidbody = (Rigidbody2D)ball.GetComponentInChildren(typeof(Rigidbody2D));
-    //        //rigidbody.AddForce(new Vector2(0, ballForce), ForceMode2D.Impulse);
-    //        //_ball = ball;
-    //        //yield return null;
-    //    }
-    //}
-
     public IEnumerator SpawnNewBall()
     {
         yield return new WaitForSeconds(1);
         if (!GameObject.FindGameObjectWithTag("Ball"))
         {
-            Vector3 ballSpawnLocation = gameObject.transform.position + new Vector3(0, 1, 0);
+            Vector3 ballSpawnLocation = BallSpawnPosition();
             //Debug.Log("spawn");
             ball = Instantiate(ballPrefab, ballSpawnLocation, transform.rotation);
             ballReleased = false;
         }
+    }
+
+    Vector3 BallSpawnPosition()
+    {
+        Vector3 paddlePosition = gameObject.transform.position;
+        Vector3 ballSpawnLocation = paddlePosition + new Vector3(0, 1, 0);
+        return ballSpawnLocation;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
