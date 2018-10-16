@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212919662151355644}
   - component: {fileID: 61000843544143106}
   - component: {fileID: 50969164716678120}
-  - component: {fileID: 114999513967743034}
   - component: {fileID: 114021347328624590}
   m_Layer: 0
   m_Name: PUSmallPaddle
@@ -100,18 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4fca6a6565a8a44964dc1b1f96838c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114999513967743034
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1386613519490704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59ac609a13a9b504a9534ce8806ed21f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerUpPrefabs: []
 --- !u!212 &212919662151355644
 SpriteRenderer:
   m_ObjectHideFlags: 1

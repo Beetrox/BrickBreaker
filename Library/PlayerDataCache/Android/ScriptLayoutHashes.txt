@@ -149,7 +149,7 @@ a3c4f6168fdec1e9debee096e97ab787 Assembly-CSharp.dll:TMPro.Examples.TMP_TextEven
 23957a86ba9196639ad6a7490cbd566b Assembly-CSharp.dll:.PathSplinePerformance
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.PowerUpProperties
 22ecda73af2fd7585ef1418ce49f1ddc Assembly-CSharp.dll:.TestingSequencer
-751af0111492fc1a8fdc6efc854d5c58 Assembly-CSharp.dll:.BrickController
+8f61cecb96f09bd840c2419a2326fdef Assembly-CSharp.dll:.BrickController
 f16835701e71dd5d6fb1fed4b7aff1d8 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp-firstpass.dll:.LeanTween
 bb3f8ae71cc0b231bf331b52aca45ebd Assembly-CSharp.dll:TMPro.Examples.CameraController
@@ -243,3 +243,7 @@ dd223b2cbb523615eee8980d99d61ddd Assembly-CSharp.dll:.EnvMapAnimator
 cc85ac5c8da8d67007af8f312d9310ae Assembly-CSharp.dll:.OldGUIExamplesCS
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.PUBigPaddle
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.PUBigBall
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.PUSmallPaddle
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.MenuController
+e8fa88925031c5c070c349a86aec5adf Assembly-CSharp.dll:.ScoreController
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.LivesController

@@ -35,7 +35,7 @@ public class PUSmallPaddle : MonoBehaviour
             rigidbody2D.gravityScale = 0;
             paddleController.hasPowerUp = true;
             Vector3 baseSize = paddle.transform.localScale;
-            Debug.Log(baseSize);
+            //Debug.Log(baseSize);
             float paddleX = baseSize.x;
             float newWidth = paddleX / 3;
             paddle.transform.localScale -= new Vector3(newWidth, 0, 0);
@@ -51,6 +51,7 @@ public class PUSmallPaddle : MonoBehaviour
         }
         else
         {
+            Debug.Log("destroy in execute");
             Destroy(gameObject);
         }
     }

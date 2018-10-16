@@ -69,6 +69,7 @@
     <Compile Include="Assets\_Game\Scripts\GameManager.cs" />
     <Compile Include="Assets\_Game\Scripts\LivesController.cs" />
     <Compile Include="Assets\_Game\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\_Game\Scripts\MenuButton.cs" />
     <Compile Include="Assets\_Game\Scripts\MenuController.cs" />
     <Compile Include="Assets\_Game\Scripts\PaddleController.cs" />
     <Compile Include="Assets\_Game\Scripts\PowerUpController.cs" />

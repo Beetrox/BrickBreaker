@@ -80,7 +80,7 @@ public class PaddleController : MonoBehaviour
                 {
                     if (hit.collider != null && hit.collider.tag == "Ball")
                     {
-                        Debug.Log("release ball");
+                        //Debug.Log("release ball");
                         ball.GetComponentInChildren<Rigidbody2D>().AddForce(new Vector2(0, 6f), ForceMode2D.Impulse);
                         ballReleased = true;
                     }

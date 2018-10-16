@@ -26,7 +26,7 @@ public class PowerUpController : MonoBehaviour
         //Debug.Log("collided");
         if (collision.gameObject.tag == "Paddle")
         {
-            //Debug.Log("power up");
+            //Debug.Log("power up then destroy");
             // connect to FastBall()
             Destroy(gameObject, 0.05f);
         }
