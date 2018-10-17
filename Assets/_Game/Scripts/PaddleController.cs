@@ -47,6 +47,7 @@ public class PaddleController : MonoBehaviour
         position.y = Mathf.Clamp01(position.y);
         transform.position = Camera.main.ViewportToWorldPoint(position);
 
+        // paddle for touch input
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
         {
             Vector2 touchPosition = Input.GetTouch(0).position;
@@ -63,12 +64,22 @@ public class PaddleController : MonoBehaviour
             }
         }
 
+        // paddle for keyboard input
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+        }
+
         if (ball && !ballReleased)
         {
             //Rigidbody2D ballRigidbody = ball.GetComponent<Rigidbody2D>();
             ball.transform.position = BallSpawnPosition();
 
-            //for touch input
+            // ball release for touch input
             foreach (Touch touch in Input.touches)
             {
 
@@ -87,20 +98,20 @@ public class PaddleController : MonoBehaviour
                 }
             }
 
-            //for keyboard input
-            //if (Input.GetButtonDown("Jump"))
-            //{
-            //    //Debug.Log("release ball");
-            //    ball.GetComponentInChildren<Rigidbody2D>().AddForce(new Vector2(0, 6f), ForceMode2D.Impulse);
-            //    ballReleased = true;
-            //}
+            // ball release for keyboard input
+            if (Input.GetButtonDown("Jump"))
+                {
+                    //Debug.Log("release ball");
+                    ball.GetComponentInChildren<Rigidbody2D>().AddForce(new Vector2(0, 6f), ForceMode2D.Impulse);
+                    ballReleased = true;
+                }
         }
     }
 
     public IEnumerator SpawnNewBall()
     {
         yield return new WaitForSeconds(1);
-        if (!GameObject.FindGameObjectWithTag("Ball"))
+        if (!GameObject.FindGameObjectWithTag("Ball"));
         {
             Vector3 ballSpawnLocation = BallSpawnPosition();
             //Debug.Log("spawn");

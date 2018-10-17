@@ -11,6 +11,8 @@ TagManager:
   - Bricks
   - Paddle
   - GameManager
+  - Lives
+  - LivesText
   layers:
   - Default
   - TransparentFX

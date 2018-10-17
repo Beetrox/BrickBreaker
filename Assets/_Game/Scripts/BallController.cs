@@ -6,6 +6,7 @@ public class BallController : MonoBehaviour
 {
     public GameManager gameManager;
     PaddleController paddleController;
+    LivesController livesController;
     public bool hasPowerUp = false;
 
     Rigidbody2D rigidbody;
@@ -32,6 +33,9 @@ public class BallController : MonoBehaviour
 
         GameObject paddle = GameObject.FindGameObjectWithTag("Paddle");
         paddleController = paddle.GetComponent<PaddleController>();
+
+        GameObject lives = GameObject.FindGameObjectWithTag("Lives");
+        livesController = lives.GetComponent<LivesController>();
     }
 
     void Update()
@@ -51,6 +55,10 @@ public class BallController : MonoBehaviour
         //Debug.Log("collided");
         if (collision.gameObject.tag == "Bottom")
         {
+            // toggle endless mode
+
+            livesController.RemoveLife();
+
             //Debug.Log("hit bottom");
             //gameManager.DestroyObject(gameObject);
             //gameManager.StartCoroutine("SpawnNewBall()");

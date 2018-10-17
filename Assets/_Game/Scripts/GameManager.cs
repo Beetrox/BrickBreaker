@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,16 +11,20 @@ public class GameManager : MonoBehaviour
     Vector3 paddleSpawnLocation;
     public BallController ballController;
     public BrickController brickController;
+    public LivesController livesController;
     PaddleController paddleController;
     int ballForce = -6;
     int finalLevel = 10;
     GameObject ball;
+    public bool gameOver = false;
 
     public int levelNumber = 1;
     
 	void Start()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
+
+        livesController.RestoreLives();
 
         Init();
 	}
@@ -37,6 +42,12 @@ public class GameManager : MonoBehaviour
         //reset input position?
         //SpawnNewBall();
         //Debug.Log(string.Format("Ball speed:{0}", _ball.GetComponentInChildren<Rigidbody2D>().velocity));
+
+        //if (gameOver)
+        //{
+        //    SceneManager.LoadScene("MainMenu");
+        //}
+
         GameObject paddle = GameObject.FindGameObjectWithTag("Paddle");
         paddleController = paddle.GetComponent<PaddleController>();
         ball = GameObject.FindGameObjectWithTag("Ball");
@@ -61,6 +72,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 Debug.Log("YOU WON!");
+                gameOver = true;
             }
         }
     }
@@ -80,6 +92,13 @@ public class GameManager : MonoBehaviour
 
         //paddleController = paddle.GetComponent<PaddleController>();
         //paddleController.SpawnNewBall();
+    }
+
+    Vector3 GetCameraSize()
+    {
+        Vector2 size = new Vector2(Screen.width, Screen.height);
+        Vector3 cameraSize = Camera.main.ScreenToWorldPoint(size);
+        return cameraSize;
     }
 
     //void SpawnNewBall()

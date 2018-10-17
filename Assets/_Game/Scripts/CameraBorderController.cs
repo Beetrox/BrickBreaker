@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraBorderController : MonoBehaviour {
-
+public class CameraBorderController : MonoBehaviour
+{
     public GameObject topBorder;
     public GameObject leftBorder;
     public GameObject rightBorder;
