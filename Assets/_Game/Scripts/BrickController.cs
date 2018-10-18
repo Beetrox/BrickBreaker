@@ -25,7 +25,7 @@ public class BrickController : MonoBehaviour
         float cameraY = cameraSize.y;
         float cameraZ = cameraSize.z;
 
-        int gridColumns = 1;
+        int gridColumns = 9;
         int gridRows = levelNumber;
 
         float brickSpacingX = cameraX / 5.6f;
