@@ -37,12 +37,22 @@ public class GameManager : MonoBehaviour
         brickController.SetUpBricks(levelNumber);
         SpawnPaddle();
     }
-	
-	void Update()
+
+    void Update()
     {
         GameObject paddle = GameObject.FindGameObjectWithTag("Paddle");
         paddleController = paddle.GetComponent<PaddleController>();
         ball = GameObject.FindGameObjectWithTag("Ball");
+
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("MainMenu");
+
+                return;
+            }
+        }
     }
 
     public IEnumerator NextLevel()

@@ -5,6 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    private void Update()
+    {
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                Debug.Log("QUIT");
+                Application.Quit();
+
+                return;
+            }
+        }
+    }
+
     public void PlayGame()
     {
         SceneManager.LoadScene("Level 1");
