@@ -73,9 +73,17 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("YOU WON!");
-                SceneManager.LoadScene("MainMenu");
-                gameOver = true;
+                if (!endless)
+                {
+                    Debug.Log("YOU WON!");
+                    SceneManager.LoadScene("MainMenu");
+                    gameOver = true;
+                }
+                else
+                {
+                    brickController.SetUpBricks(finalLevel);
+                    StartCoroutine(paddleController.SpawnNewBall());
+                }
             }
         }
     }

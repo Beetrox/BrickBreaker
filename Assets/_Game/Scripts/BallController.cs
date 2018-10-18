@@ -15,6 +15,9 @@ public class BallController : MonoBehaviour
 
     void Start()
     {
+        GameObject managerObject = GameObject.FindGameObjectWithTag("GameManager");
+        gameManager = managerObject.GetComponent<GameManager>();
+
         Vector2 size = new Vector2(Screen.width, Screen.height);
         Vector3 cameraSize = Camera.main.ScreenToWorldPoint(size);
 
@@ -56,14 +59,10 @@ public class BallController : MonoBehaviour
         if (collision.gameObject.tag == "Bottom")
         {
             // toggle endless mode
-            //if (!gameManager.endless)
-            //{
-            livesController.RemoveLife();
-            //}
-
-            //Debug.Log("hit bottom");
-            //gameManager.DestroyObject(gameObject);
-            //gameManager.StartCoroutine("SpawnNewBall()");
+            if (!gameManager.endless)
+            {
+                livesController.RemoveLife();
+            }
             paddleController.StartCoroutine("SpawnNewBall");
             Destroy(gameObject.transform.parent.gameObject);
         }
