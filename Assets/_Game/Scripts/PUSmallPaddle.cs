@@ -43,7 +43,7 @@ public class PUSmallPaddle : MonoBehaviour
             gameObject.transform.localScale = new Vector3(0, 0, 0);
 
             yield return new WaitForSeconds(powerUpTime);
-            Debug.Log("back to normal");
+            //Debug.Log("back to normal");
             paddle.transform.localScale = baseSize;
             paddleController.hasPowerUp = false;
             //Debug.Log(paddle.transform.localScale);
@@ -51,7 +51,6 @@ public class PUSmallPaddle : MonoBehaviour
         }
         else
         {
-            Debug.Log("destroy in execute");
             Destroy(gameObject);
         }
     }

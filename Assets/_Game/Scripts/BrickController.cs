@@ -25,10 +25,8 @@ public class BrickController : MonoBehaviour
         float cameraY = cameraSize.y;
         float cameraZ = cameraSize.z;
 
-        int gridColumns = 9;
+        int gridColumns = 1;
         int gridRows = levelNumber;
-
-        //Debug.Log(gridRows / 2);
 
         float brickSpacingX = cameraX / 5.6f;
         float brickSpacingY = cameraY / 9;
@@ -56,12 +54,8 @@ public class BrickController : MonoBehaviour
 
         if (randomPowerUp == 1)
         {
-            // make list of power ups and randomise from here
-            //Debug.Log("power up 1 spawned");
-            //int random = Random.Range(1, 2);
-            //Instantiate(powerUpBigPaddle, position, powerUpBigPaddle.transform.rotation);
-            int random = Random.Range(0, 3);
-            //Debug.Log(random);
+            int random = Random.Range(0, 4);
+            // why this rotation?
             Instantiate(powerUpPrefabs[random], position, powerUpBigPaddle.transform.rotation);
         }
 

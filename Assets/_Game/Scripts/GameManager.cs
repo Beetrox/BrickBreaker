@@ -17,12 +17,15 @@ public class GameManager : MonoBehaviour
     int finalLevel = 10;
     GameObject ball;
     public bool gameOver = false;
+    public bool endless;
 
     public int levelNumber = 1;
     
 	void Start()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
+
+        endless = false;
 
         livesController.RestoreLives();
 
@@ -33,21 +36,10 @@ public class GameManager : MonoBehaviour
     {
         brickController.SetUpBricks(levelNumber);
         SpawnPaddle();
-        //StartCoroutine("SpawnNewBall");
-        //SpawnNewBall();
     }
 	
 	void Update()
     {
-        //reset input position?
-        //SpawnNewBall();
-        //Debug.Log(string.Format("Ball speed:{0}", _ball.GetComponentInChildren<Rigidbody2D>().velocity));
-
-        //if (gameOver)
-        //{
-        //    SceneManager.LoadScene("MainMenu");
-        //}
-
         GameObject paddle = GameObject.FindGameObjectWithTag("Paddle");
         paddleController = paddle.GetComponent<PaddleController>();
         ball = GameObject.FindGameObjectWithTag("Ball");
@@ -72,6 +64,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 Debug.Log("YOU WON!");
+                SceneManager.LoadScene("MainMenu");
                 gameOver = true;
             }
         }
@@ -89,9 +82,6 @@ public class GameManager : MonoBehaviour
         paddleSpawnLocation = new Vector3(0, 0, 0);
 
         GameObject paddle = Instantiate(paddlePrefab, paddleSpawnLocation, transform.rotation);
-
-        //paddleController = paddle.GetComponent<PaddleController>();
-        //paddleController.SpawnNewBall();
     }
 
     Vector3 GetCameraSize()
@@ -100,24 +90,4 @@ public class GameManager : MonoBehaviour
         Vector3 cameraSize = Camera.main.ScreenToWorldPoint(size);
         return cameraSize;
     }
-
-    //void SpawnNewBall()
-    //{
-    //    if (!GameObject.FindGameObjectWithTag("Ball"))
-    //    {
-    //        //Debug.Log("spawn");
-    //        GameObject ball = Instantiate(ballPrefab, ballSpawnLocation, transform.rotation);
-    //        //ballController.gameManager = this;
-    //        //ball.tag = "Ball";
-    //        Rigidbody2D rigidbody = (Rigidbody2D)ball.GetComponentInChildren(typeof(Rigidbody2D));
-    //        rigidbody.AddForce(new Vector2(0, ballForce), ForceMode2D.Impulse);
-    //        //_ball = ball;
-    //        //yield return null;
-    //    }
-    //}
-
-    //public void DestroyObject(GameObject gameObject)
-    //{
-    //    Destroy(gameObject.transform.parent.gameObject);
-    //}
 }

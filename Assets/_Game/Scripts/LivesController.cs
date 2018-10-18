@@ -9,13 +9,13 @@ public class LivesController : MonoBehaviour
     public GameObject lifePrefab;
     Vector3 lifeSpawn;
     //Vector3 lifeSpawn;
-    int lives = 3;
+    int lives = 5;
+    int maxLives = 5;
     float lifeDistance = 0.7f;
-
-	// Use this for initialization
+    
 	void Start ()
     {
-        gameManager.GetComponent<GameManager>();
+        //gameManager.GetComponent<GameManager>();
 
         for (int i = 1; i <= lives; i++)
         {
@@ -29,7 +29,7 @@ public class LivesController : MonoBehaviour
         }
     }
 
-    public bool RemoveLife()
+    public void RemoveLife()
     {
         if (!gameManager.gameOver)
         {
@@ -42,23 +42,24 @@ public class LivesController : MonoBehaviour
             gameManager.gameOver = true;
             Debug.Log("Game over");
             SceneManager.LoadScene("MainMenu");
-            return false;
         }
-        return true;
+    }
 
+    public void AddLife()
+    {
+        if (!gameManager.gameOver && lives < maxLives)
+        {
+            lives++;
+            Debug.Log(lives);
+            transform.GetChild(lives-1).gameObject.SetActive(true);
+        }
     }
 
     public void RestoreLives()
     {
-
         foreach (Transform child in transform)
         {
             child.gameObject.SetActive(true);
         }
     }
-
-        // Update is called once per frame
-        void Update () {
-		
-	}
 }

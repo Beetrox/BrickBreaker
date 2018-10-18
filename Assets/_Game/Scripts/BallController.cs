@@ -56,8 +56,10 @@ public class BallController : MonoBehaviour
         if (collision.gameObject.tag == "Bottom")
         {
             // toggle endless mode
-
+            //if (!gameManager.endless)
+            //{
             livesController.RemoveLife();
+            //}
 
             //Debug.Log("hit bottom");
             //gameManager.DestroyObject(gameObject);

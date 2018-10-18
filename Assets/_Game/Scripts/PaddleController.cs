@@ -35,13 +35,6 @@ public class PaddleController : MonoBehaviour
 
     void Update()
     {
-        //Vector2 paddleSize = gameObject.GetComponentInChildren<BoxCollider2D>().bounds.size;
-        //float paddleX = paddleSize.x;
-
-        //Vector3 paddleSize = gameObject.transform.localScale;
-        //float paddleX = paddleSize.x;
-        //Debug.Log(paddleX);
-
         Vector3 position = Camera.main.WorldToViewportPoint(transform.position);
         position.x = Mathf.Clamp01(position.x);
         position.y = Mathf.Clamp01(position.y);
@@ -140,10 +133,5 @@ public class PaddleController : MonoBehaviour
                 contactPoint.collider.GetComponent<Rigidbody2D>().AddForce(new Vector2(70, 0) * calc);
             }
         }
-    }
-    
-    public void PowerUpFlash()
-    {
-        Debug.Log("flashing");
     }
 }

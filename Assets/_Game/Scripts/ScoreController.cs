@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ScoreController : MonoBehaviour {
-
+public class ScoreController : MonoBehaviour
+{
     TextMeshProUGUI textMesh;
     public int score = 0;
-
-	// Use this for initialization
+    
 	void Start ()
     {
         {
@@ -27,10 +26,9 @@ public class ScoreController : MonoBehaviour {
     {
         textMesh.SetText("Score: " + score.ToString());
     }
-
-    // Update is called once per frame
-    void Update () {
+    
+    void Update ()
+    {
         SetScore(score);
-		
 	}
 }
