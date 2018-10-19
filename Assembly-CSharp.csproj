@@ -79,6 +79,7 @@
     <Compile Include="Assets\_Game\Scripts\PUExtraLife.cs" />
     <Compile Include="Assets\_Game\Scripts\PUSmallPaddle.cs" />
     <Compile Include="Assets\_Game\Scripts\ScoreController.cs" />
+    <Compile Include="Assets\_Game\Scripts\VariableHandler.cs" />
     <Compile Include="Assets\LeanTween\Examples\Archived\OldGUIExamplesCS.cs" />
     <Compile Include="Assets\LeanTween\Examples\Archived\TestingPunch.cs" />
     <Compile Include="Assets\LeanTween\Examples\Archived\TestingRigidbodyCS.cs" />

@@ -17,15 +17,19 @@ public class GameManager : MonoBehaviour
     int finalLevel = 10;
     GameObject ball;
     public bool gameOver = false;
-    public bool endless;
+    public bool endless = true;
 
-    public int levelNumber = 1;
+    public int levelNumber;
     
 	void Start()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
 
-        endless = false;
+        GameObject variableObject = GameObject.FindGameObjectWithTag("VariableHandler");
+        VariableHandler variableHandler = variableObject.GetComponent<VariableHandler>();
+        endless = variableHandler.endlessMode;
+
+        levelNumber = 1;
 
         livesController.RestoreLives();
 

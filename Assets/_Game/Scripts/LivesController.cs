@@ -15,7 +15,8 @@ public class LivesController : MonoBehaviour
     
 	void Start ()
     {
-        //gameManager.GetComponent<GameManager>();
+        GameObject managerObject = GameObject.FindGameObjectWithTag("GameManager");
+        gameManager = managerObject.GetComponent<GameManager>();
 
         for (int i = 1; i <= lives; i++)
         {
@@ -55,7 +56,7 @@ public class LivesController : MonoBehaviour
             transform.GetChild(lives-1).gameObject.SetActive(true);
         }
     }
-
+    
     public void RestoreLives()
     {
         foreach (Transform child in transform)

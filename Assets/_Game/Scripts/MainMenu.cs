@@ -5,6 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    VariableHandler variableHandler;
+
+    private void Start()
+    {
+        GameObject variableObject = GameObject.FindGameObjectWithTag("VariableHandler");
+        variableHandler = variableObject.GetComponent<VariableHandler>();
+    }
+
     private void Update()
     {
         if (Application.platform == RuntimePlatform.Android)
@@ -21,6 +29,13 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
+        variableHandler.endlessMode = false;
+        SceneManager.LoadScene("Level 1");
+    }
+
+    public void EndlessMode()
+    {
+        variableHandler.endlessMode = true;
         SceneManager.LoadScene("Level 1");
     }
 
