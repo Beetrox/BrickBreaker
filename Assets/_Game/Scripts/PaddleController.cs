@@ -122,11 +122,15 @@ public class PaddleController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        GameObject ball = GameObject.FindGameObjectWithTag("Ball");
+        BallController ballController = ball.GetComponent<BallController>();
+
         //Debug.Log("collided");
-        foreach(ContactPoint2D contactPoint in collision.contacts)
+        foreach (ContactPoint2D contactPoint in collision.contacts)
         {
             if(collision.transform.tag == "Ball")
             {
+                ballController.touchedPaddle = true;
                 //Debug.Log("collided ball");
                 Vector2 hitpoint = contactPoint.point;
                 float calc = hitpoint.x - transform.position.x;

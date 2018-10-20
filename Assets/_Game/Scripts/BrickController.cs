@@ -5,7 +5,7 @@ using UnityEngine;
 public class BrickController : MonoBehaviour
 {
     public GameManager gameManager;
-    public GameObject ballPrefab;
+    //public GameObject ballPrefab;
     public GameObject brickPrefab;
     public GameObject powerUpBigPaddle;
     public GameObject powerUpBigBall;
@@ -47,7 +47,18 @@ public class BrickController : MonoBehaviour
 
     public void BrickDestroyed(Vector3 position)
     {
-        scoreController.score++;
+        GameObject ball = GameObject.FindGameObjectWithTag("Ball");
+        BallController ballController = ball.GetComponent<BallController>();
+
+
+        if (ballController.touchedPaddle)
+        {
+            scoreController.score = scoreController.score + 10;
+        }
+        if (!ballController.touchedPaddle)
+        {
+            scoreController.score = scoreController.score + 20;
+        }
         //scoreController.SetScore(newScore);
 
         int randomPowerUp = Random.Range(1, 3);

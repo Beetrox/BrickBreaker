@@ -10,6 +10,7 @@ public class BallController : MonoBehaviour
     Rigidbody2D rigidbody;
 
     public bool hasPowerUp = false;
+    public bool touchedPaddle = true;
     //Vector2 constantVelocity = new Vector2(1f, 1f);
     float constantSpeed = 6f;
 
