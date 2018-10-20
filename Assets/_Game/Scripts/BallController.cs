@@ -7,9 +7,9 @@ public class BallController : MonoBehaviour
     public GameManager gameManager;
     PaddleController paddleController;
     LivesController livesController;
-    public bool hasPowerUp = false;
-
     Rigidbody2D rigidbody;
+
+    public bool hasPowerUp = false;
     //Vector2 constantVelocity = new Vector2(1f, 1f);
     float constantSpeed = 6f;
 

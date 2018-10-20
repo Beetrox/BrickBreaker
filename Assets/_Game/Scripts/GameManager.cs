@@ -7,27 +7,36 @@ public class GameManager : MonoBehaviour
 {
     public GameObject ballPrefab;
     public GameObject paddlePrefab;
-    Vector3 ballSpawnLocation = new Vector3(0, 0, 0);
-    Vector3 paddleSpawnLocation;
+    GameObject variableObject;
+    GameObject ball;
     public BallController ballController;
     public BrickController brickController;
     public LivesController livesController;
     PaddleController paddleController;
-    int ballForce = -6;
-    int finalLevel = 10;
-    GameObject ball;
-    public bool gameOver = false;
-    public bool endless = true;
 
     public int levelNumber;
+    int ballForce = -6;
+    int finalLevel = 10;
+    public bool gameOver = false;
+    public bool endless = true;
+    Vector3 ballSpawnLocation = new Vector3(0, 0, 0);
+    Vector3 paddleSpawnLocation;
     
 	void Start()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
 
-        GameObject variableObject = GameObject.FindGameObjectWithTag("VariableHandler");
-        VariableHandler variableHandler = variableObject.GetComponent<VariableHandler>();
-        endless = variableHandler.endlessMode;
+        variableObject = GameObject.FindGameObjectWithTag("VariableHandler");
+        if(variableObject)
+        {
+
+            VariableHandler variableHandler = variableObject.GetComponent<VariableHandler>();
+            endless = variableHandler.endlessMode;
+        }
+        else
+        {
+            endless = true;
+        }
 
         levelNumber = 1;
 
@@ -45,7 +54,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         GameObject paddle = GameObject.FindGameObjectWithTag("Paddle");
-        paddleController = paddle.GetComponent<PaddleController>();
+        if (paddle)
+        {
+            paddleController = paddle.GetComponent<PaddleController>();
+        }
         ball = GameObject.FindGameObjectWithTag("Ball");
 
         if (Application.platform == RuntimePlatform.Android)
@@ -80,7 +92,12 @@ public class GameManager : MonoBehaviour
                 if (!endless)
                 {
                     Debug.Log("YOU WON!");
-                    SceneManager.LoadScene("MainMenu");
+                    VariableHandler variableHandler = variableObject.GetComponent<VariableHandler>();
+                    GameObject scoreObject = GameObject.FindGameObjectWithTag("Score");
+                    ScoreController scoreController = scoreObject.GetComponent<ScoreController>();
+                    variableHandler.finalScore = scoreController.score;
+                    variableHandler.winner = true;
+                    SceneManager.LoadScene("GameOver");
                     gameOver = true;
                 }
                 else
@@ -90,6 +107,18 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("Game over");
+
+        VariableHandler variableHandler = variableObject.GetComponent<VariableHandler>();
+        GameObject scoreObject = GameObject.FindGameObjectWithTag("Score");
+        ScoreController scoreController = scoreObject.GetComponent<ScoreController>();
+        variableHandler.finalScore = scoreController.score;
+        variableHandler.winner = false;
+        SceneManager.LoadScene("GameOver");
     }
 
     void SpawnPaddle()

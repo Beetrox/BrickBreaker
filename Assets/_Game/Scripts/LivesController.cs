@@ -7,9 +7,9 @@ public class LivesController : MonoBehaviour
 {
     public GameManager gameManager;
     public GameObject lifePrefab;
+
     Vector3 lifeSpawn;
-    //Vector3 lifeSpawn;
-    int lives = 5;
+    public int lives = 5;
     int maxLives = 5;
     float lifeDistance = 0.7f;
     
@@ -42,8 +42,7 @@ public class LivesController : MonoBehaviour
         if (lives == 0)
         {
             gameManager.gameOver = true;
-            Debug.Log("Game over");
-            SceneManager.LoadScene("MainMenu");
+            gameManager.GameOver();
         }
     }
 

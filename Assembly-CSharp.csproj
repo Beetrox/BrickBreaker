@@ -66,7 +66,10 @@
     <Compile Include="Assets\_Game\Scripts\BrickController.cs" />
     <Compile Include="Assets\_Game\Scripts\CameraBorderController.cs" />
     <Compile Include="Assets\_Game\Scripts\ExplosionController.cs" />
+    <Compile Include="Assets\_Game\Scripts\FinalScore.cs" />
     <Compile Include="Assets\_Game\Scripts\GameManager.cs" />
+    <Compile Include="Assets\_Game\Scripts\GameOverMenu.cs" />
+    <Compile Include="Assets\_Game\Scripts\GameOverText.cs" />
     <Compile Include="Assets\_Game\Scripts\LivesController.cs" />
     <Compile Include="Assets\_Game\Scripts\MainMenu.cs" />
     <Compile Include="Assets\_Game\Scripts\MenuButton.cs" />

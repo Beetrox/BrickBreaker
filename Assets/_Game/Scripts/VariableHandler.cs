@@ -5,6 +5,7 @@ using UnityEngine;
 public class VariableHandler : MonoBehaviour
 {
     public bool endlessMode;
+    public bool winner;
     public int finalScore;
 
     public int savedScore;

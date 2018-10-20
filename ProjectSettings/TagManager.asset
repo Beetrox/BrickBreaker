@@ -13,6 +13,8 @@ TagManager:
   - GameManager
   - Lives
   - LivesText
+  - VariableHandler
+  - Score
   layers:
   - Default
   - TransparentFX

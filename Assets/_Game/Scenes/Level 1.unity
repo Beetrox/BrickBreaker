@@ -454,6 +454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1914304407}
   lifePrefab: {fileID: 1748349157409188, guid: 0be50ca050ffaba419faa10214bc878b, type: 2}
+  lives: 5
 --- !u!223 &112670066
 Canvas:
   m_ObjectHideFlags: 0
@@ -889,7 +890,7 @@ GameObject:
   - component: {fileID: 882169681}
   m_Layer: 0
   m_Name: Score
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1532,9 +1533,9 @@ MonoBehaviour:
   ballController: {fileID: 0}
   brickController: {fileID: 1162550680}
   livesController: {fileID: 112670065}
+  levelNumber: 1
   gameOver: 0
   endless: 0
-  levelNumber: 1
 --- !u!4 &1914304408
 Transform:
   m_ObjectHideFlags: 0
