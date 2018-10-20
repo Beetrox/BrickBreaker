@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public int levelNumber;
     int ballForce = -6;
     int finalLevel = 10;
+    [HideInInspector]
     public bool gameOver = false;
     public bool endless = true;
     Vector3 ballSpawnLocation = new Vector3(0, 0, 0);

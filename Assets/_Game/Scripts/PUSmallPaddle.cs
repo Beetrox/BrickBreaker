@@ -37,7 +37,9 @@ public class PUSmallPaddle : MonoBehaviour
             Vector3 baseSize = paddle.transform.localScale;
             //Debug.Log(baseSize);
             float paddleX = baseSize.x;
-            float newWidth = paddleX / 3;
+            Debug.Log(paddleX);
+            float newWidth = paddleX / 2;
+            Debug.Log(newWidth);
             paddle.transform.localScale -= new Vector3(newWidth, 0, 0);
             //Debug.Log(paddle.transform.localScale);
             gameObject.transform.localScale = new Vector3(0, 0, 0);

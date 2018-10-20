@@ -65,7 +65,7 @@ public class BrickController : MonoBehaviour
 
         if (randomPowerUp == 1)
         {
-            int random = Random.Range(0, 4);
+            int random = Random.Range(0, 5);
             // why this rotation?
             Instantiate(powerUpPrefabs[random], position, powerUpBigPaddle.transform.rotation);
         }
