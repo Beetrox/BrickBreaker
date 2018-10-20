@@ -1073,7 +1073,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1914304407}
-  ballPrefab: {fileID: 1641737354451900, guid: d951291a1879c9240a18d5174b5b93ac, type: 2}
   brickPrefab: {fileID: 1298005912168270, guid: dda26efed1d83ae4baa82ff959406f4b,
     type: 2}
   powerUpBigPaddle: {fileID: 1245317906193584, guid: d01dcebfd2eec7245b41aab586dbbd45,
@@ -1087,6 +1086,7 @@ MonoBehaviour:
   - {fileID: 1249642978759122, guid: df21e8ff517010c4ebbdc4db193bfc1f, type: 2}
   - {fileID: 1386613519490704, guid: 879dbe074322d04429118a26ff0a0371, type: 2}
   - {fileID: 1335171960591540, guid: e0effc67e26ed1748820c9366447b044, type: 2}
+  - {fileID: 1384270807363504, guid: 07762e7a780859148b0c2d1085e2cac6, type: 2}
 --- !u!4 &1162550681
 Transform:
   m_ObjectHideFlags: 0

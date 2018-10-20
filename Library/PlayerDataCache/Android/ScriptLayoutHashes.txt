@@ -150,7 +150,7 @@ a3c4f6168fdec1e9debee096e97ab787 Assembly-CSharp.dll:TMPro.Examples.TMP_TextEven
 23957a86ba9196639ad6a7490cbd566b Assembly-CSharp.dll:.PathSplinePerformance
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.PowerUpProperties
 22ecda73af2fd7585ef1418ce49f1ddc Assembly-CSharp.dll:.TestingSequencer
-8f61cecb96f09bd840c2419a2326fdef Assembly-CSharp.dll:.BrickController
+20f72488883e497dbabbe9de5c878ea6 Assembly-CSharp.dll:.BrickController
 f16835701e71dd5d6fb1fed4b7aff1d8 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp-firstpass.dll:.LeanTween
 bb3f8ae71cc0b231bf331b52aca45ebd Assembly-CSharp.dll:TMPro.Examples.CameraController
@@ -210,7 +210,7 @@ e033f131358cea5a0eabf9561e781deb UnityEngine.TestRunner.dll:UnityEngine.TestTool
 4ff0bb9a305567221c5f93759417ee3d Assembly-CSharp.dll:TMPro.Examples.TMP_TextInfoDebugTool
 9ecabe4a6b0b699f4890bde3b3e4b3b9 Assembly-CSharp.dll:TMPro.Examples.TMP_FrameRateCounter
 d17b1f1790ce13ac5f0fa6c48f4d0684 Assembly-CSharp.dll:TMPro.Examples.TMP_TextSelector_B
-405b8a7162d9e7c67ccad7d9a8779521 Assembly-CSharp.dll:.BallController
+d3352ef9fd0c26a839eb946582765426 Assembly-CSharp.dll:.BallController
 d75dc834c5dec688db75a55a1724c90f UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 486cd95c82d8305219c352c06b776e1f UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 e1ea12ca952c81d81a9a21fdf34446ed UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
@@ -239,7 +239,7 @@ e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 58b80cf56079b9b2c86ad9aaede3dca8 Assembly-CSharp.dll:TMPro.Examples.TextMeshProFloatingText
 2f9af06a78208a67db480e9bfed4a076 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 9318334b30e9f195f573b2ce00154b95 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
-09e4eff74dffba04a75fbe5ad8b6d703 Assembly-CSharp.dll:.Brick
+079a33970114461de697f40455fd7c76 Assembly-CSharp.dll:.Brick
 d6847627ba7741c18a9d5258fc293648 Assembly-CSharp.dll:TMPro.Examples.VertexShakeA
 dd223b2cbb523615eee8980d99d61ddd Assembly-CSharp.dll:.EnvMapAnimator
 7fc7ed2a23b02c7e7a00fa936bbf9923 Assembly-CSharp.dll:.PathSplines
@@ -254,3 +254,4 @@ e8fa88925031c5c070c349a86aec5adf Assembly-CSharp.dll:.ScoreController
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.GameOverMenu
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.FinalScore
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.GameOverText
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.PUSmallBall
