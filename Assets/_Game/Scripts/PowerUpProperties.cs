@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class PowerUpProperties : MonoBehaviour
 {
-	void Start ()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine("PowerUpTime");	
-	}
+        //Debug.Log("collided");
+        if (collision.gameObject.tag == "Paddle")
+        {
+            ExecutePowerUp();
+        }
 
-    IEnumerator PowerUpTime()
+        if (collision.gameObject.tag == "Bottom")
+        {
+            //Debug.Log("bottom");
+            Destroy(gameObject);
+        }
+    }
+
+    private void ExecutePowerUp()
     {
-        Debug.Log("power up");
-        yield return new WaitForSeconds(5);
+
     }
 }

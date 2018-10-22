@@ -40,12 +40,15 @@ public class BallController : MonoBehaviour
 
         GameObject lives = GameObject.FindGameObjectWithTag("Lives");
         livesController = lives.GetComponent<LivesController>();
+
+        //if (gameObject.tag == "ExtraBall")
+        //{
+        //    gameObject.GetComponentInChildren<Rigidbody2D>().AddForce(new Vector2(0, 6f), ForceMode2D.Impulse);
+        //}
     }
 
     void Update()
     {
-        //rigidbody.velocity = constantVelocity;
-        //rigidbody.AddForce(constantVelocity);
         ConstantSpeed();
     }
 
@@ -64,6 +67,15 @@ public class BallController : MonoBehaviour
             {
                 livesController.RemoveLife();
             }
+
+            //if (gameObject.tag == "Ball")
+            //{
+            //    GameObject newBall = GameObject.FindGameObjectWithTag("ExtraBall");
+            //    newBall.tag = "Ball";
+            //}
+
+            // if extra ball no point taken
+            // if ball set extra ball to ball
             paddleController.StartCoroutine("SpawnNewBall");
             Destroy(gameObject.transform.parent.gameObject);
         }

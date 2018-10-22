@@ -9,8 +9,9 @@ public class PaddleController : MonoBehaviour
     GameObject ball;
 
     bool ballReleased = false;
-    int moveSpeed = 10;
+    public bool extraball = false;
     public bool hasPowerUp = false;
+    int moveSpeed = 10;
 
     private void Start()
     {
@@ -93,22 +94,43 @@ public class PaddleController : MonoBehaviour
 
             // ball release for keyboard input
             if (Input.GetButtonDown("Jump"))
-                {
-                    //Debug.Log("release ball");
-                    ball.GetComponentInChildren<Rigidbody2D>().AddForce(new Vector2(0, 6f), ForceMode2D.Impulse);
-                    ballReleased = true;
-                }
+            {
+                //Debug.Log("release ball");
+                ball.GetComponentInChildren<Rigidbody2D>().AddForce(new Vector2(0, 6f), ForceMode2D.Impulse);
+                ballReleased = true;
+            }
         }
     }
 
     public IEnumerator SpawnNewBall()
     {
+        if (extraball)
+        {
+            if (!GameObject.FindGameObjectWithTag("ExtraBall"))
+            {
+                //GameObject firstBall = GameObject.FindGameObjectWithTag("Ball");
+                Debug.Log("Extra ball");
+                //Vector3 extraBallSpawn = firstBall.transform.position + new Vector3(1, 1, 0);
+                //ball = Instantiate(ballPrefab, firstBall.transform.position, transform.rotation);
+                Vector3 ballSpawnLocation = BallSpawnPosition();
+                //Debug.Log("spawn");
+                ball = Instantiate(ballPrefab, ballSpawnLocation, transform.rotation);
+                ball.tag = "ExtraBall";
+                ballReleased = false;
+                //Renderer rend = extraBall.GetComponent<Renderer>();
+                //extraBall.rend.material.shader = Shader.Find("_Color");
+                //extraBall.rend.material.SetColor("_Color", Color.green);
+                extraball = false;
+            }
+        }
+
         yield return new WaitForSeconds(1);
-        if (!GameObject.FindGameObjectWithTag("Ball"));
+        if (!GameObject.FindGameObjectWithTag("Ball"))
         {
             Vector3 ballSpawnLocation = BallSpawnPosition();
             //Debug.Log("spawn");
             ball = Instantiate(ballPrefab, ballSpawnLocation, transform.rotation);
+            //ball.tag = "Ball";
             ballReleased = false;
         }
     }

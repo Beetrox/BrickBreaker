@@ -15,6 +15,7 @@ TagManager:
   - LivesText
   - VariableHandler
   - Score
+  - ExtraBall
   layers:
   - Default
   - TransparentFX

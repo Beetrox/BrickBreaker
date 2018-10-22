@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   hasPowerUp: 0
+  touchedPaddle: 1
 --- !u!212 &212686000679931572
 SpriteRenderer:
   m_ObjectHideFlags: 1

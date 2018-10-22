@@ -79,6 +79,7 @@
     <Compile Include="Assets\_Game\Scripts\PowerUpProperties.cs" />
     <Compile Include="Assets\_Game\Scripts\PUBigBall.cs" />
     <Compile Include="Assets\_Game\Scripts\PUBigPaddle.cs" />
+    <Compile Include="Assets\_Game\Scripts\PUExtraBall.cs" />
     <Compile Include="Assets\_Game\Scripts\PUExtraLife.cs" />
     <Compile Include="Assets\_Game\Scripts\PUSmallBall.cs" />
     <Compile Include="Assets\_Game\Scripts\PUSmallPaddle.cs" />

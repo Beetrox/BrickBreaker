@@ -911,7 +911,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -20}
-  m_SizeDelta: {x: 100, y: 40}
+  m_SizeDelta: {x: 400, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &882169679
 MonoBehaviour:
@@ -1087,6 +1087,7 @@ MonoBehaviour:
   - {fileID: 1386613519490704, guid: 879dbe074322d04429118a26ff0a0371, type: 2}
   - {fileID: 1335171960591540, guid: e0effc67e26ed1748820c9366447b044, type: 2}
   - {fileID: 1384270807363504, guid: 07762e7a780859148b0c2d1085e2cac6, type: 2}
+  - {fileID: 1652911124765152, guid: c2dfa3eb09d826640a2318a0d3663c2c, type: 2}
 --- !u!4 &1162550681
 Transform:
   m_ObjectHideFlags: 0
@@ -1533,7 +1534,7 @@ MonoBehaviour:
   ballController: {fileID: 0}
   brickController: {fileID: 1162550680}
   livesController: {fileID: 112670065}
-  levelNumber: 1
+  levelNumber: 10
   gameOver: 0
   endless: 0
 --- !u!4 &1914304408

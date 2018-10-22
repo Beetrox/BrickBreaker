@@ -15,6 +15,13 @@ public class BrickController : MonoBehaviour
 
     public List<GameObject> powerUpPrefabs = new List<GameObject>();
 
+    int powerUpAmount;
+
+    private void Start()
+    {
+        powerUpAmount = powerUpPrefabs.Count;
+    }
+
     public void SetUpBricks(int levelNumber)
     {
         //Debug.Log("set up bricks");
@@ -50,7 +57,6 @@ public class BrickController : MonoBehaviour
         GameObject ball = GameObject.FindGameObjectWithTag("Ball");
         BallController ballController = ball.GetComponent<BallController>();
 
-
         if (ballController.touchedPaddle)
         {
             scoreController.score = scoreController.score + 10;
@@ -59,13 +65,12 @@ public class BrickController : MonoBehaviour
         {
             scoreController.score = scoreController.score + 20;
         }
-        //scoreController.SetScore(newScore);
 
-        int randomPowerUp = Random.Range(1, 3);
+        int randomPowerUp = Random.Range(0, 2);
 
         if (randomPowerUp == 1)
         {
-            int random = Random.Range(0, 5);
+            int random = Random.Range(0, powerUpAmount);
             // why this rotation?
             Instantiate(powerUpPrefabs[random], position, powerUpBigPaddle.transform.rotation);
         }
