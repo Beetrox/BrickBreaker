@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
         variableObject = GameObject.FindGameObjectWithTag("VariableHandler");
         if(variableObject)
         {
-
             VariableHandler variableHandler = variableObject.GetComponent<VariableHandler>();
             endless = variableHandler.endlessMode;
         }

@@ -6,7 +6,7 @@ public class PowerUpProperties : MonoBehaviour
 {
     //GameObject explosion;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log("collided");
         if (collision.gameObject.tag == "Paddle")
@@ -26,8 +26,8 @@ public class PowerUpProperties : MonoBehaviour
     //    Instantiate(explosion, transform.position, explosion.transform.rotation);
     //}
 
-    private void ExecutePowerUp()
+    protected virtual void ExecutePowerUp()
     {
-
+        // action when power up hits the paddle
     }
 }
