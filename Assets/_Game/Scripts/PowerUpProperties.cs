@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PowerUpProperties : MonoBehaviour
 {
+    //GameObject explosion;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log("collided");
@@ -18,6 +20,11 @@ public class PowerUpProperties : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    //void Explosion()
+    //{
+    //    Instantiate(explosion, transform.position, explosion.transform.rotation);
+    //}
 
     private void ExecutePowerUp()
     {

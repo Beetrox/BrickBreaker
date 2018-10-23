@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
 
     void Init()
     {
-        brickController.SetUpBricks(7);
+        brickController.SetUpBricks(levelNumber);
         SpawnPaddle();
     }
 
