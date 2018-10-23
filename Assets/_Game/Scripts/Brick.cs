@@ -28,12 +28,11 @@ public class Brick : MonoBehaviour
         float cameraY = cameraSize.y;
         float cameraZ = cameraSize.z;
 
-        transform.localScale = new Vector3(cameraX / 7f, cameraY / 16, cameraZ);
+        transform.localScale = new Vector3(cameraX / 26f, cameraY / 16, cameraZ);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
         GameObject ball = GameObject.FindGameObjectWithTag("Ball");
         BallController ballController = ball.GetComponent<BallController>();
 
