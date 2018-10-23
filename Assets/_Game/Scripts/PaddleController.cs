@@ -8,7 +8,7 @@ public class PaddleController : MonoBehaviour
     public GameObject ballPrefab;
     GameObject ball;
 
-    bool ballReleased = false;
+    public bool ballReleased = false;
     public bool extraball = false;
     public bool hasPowerUp = false;
     int moveSpeed = 10;
@@ -86,7 +86,7 @@ public class PaddleController : MonoBehaviour
                     if (hit.collider != null && hit.collider.tag == "Ball")
                     {
                         //Debug.Log("release ball");
-                        ball.GetComponentInChildren<Rigidbody2D>().AddForce(new Vector2(0, 6f), ForceMode2D.Impulse);
+                        pushBall();
                         ballReleased = true;
                     }
                 }
@@ -96,10 +96,15 @@ public class PaddleController : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 //Debug.Log("release ball");
-                ball.GetComponentInChildren<Rigidbody2D>().AddForce(new Vector2(0, 6f), ForceMode2D.Impulse);
+                pushBall();
                 ballReleased = true;
             }
         }
+    }
+
+    void pushBall()
+    {
+        ball.GetComponentInChildren<Rigidbody2D>().AddForce(new Vector2(0, 6f), ForceMode2D.Impulse);
     }
 
     public IEnumerator SpawnNewBall()

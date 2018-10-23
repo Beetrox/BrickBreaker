@@ -210,7 +210,7 @@ e033f131358cea5a0eabf9561e781deb UnityEngine.TestRunner.dll:UnityEngine.TestTool
 4ff0bb9a305567221c5f93759417ee3d Assembly-CSharp.dll:TMPro.Examples.TMP_TextInfoDebugTool
 9ecabe4a6b0b699f4890bde3b3e4b3b9 Assembly-CSharp.dll:TMPro.Examples.TMP_FrameRateCounter
 d17b1f1790ce13ac5f0fa6c48f4d0684 Assembly-CSharp.dll:TMPro.Examples.TMP_TextSelector_B
-d3352ef9fd0c26a839eb946582765426 Assembly-CSharp.dll:.BallController
+11212908c55d05ce6f4c540382c4e58b Assembly-CSharp.dll:.BallController
 d75dc834c5dec688db75a55a1724c90f UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 486cd95c82d8305219c352c06b776e1f UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 e1ea12ca952c81d81a9a21fdf34446ed UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
@@ -228,7 +228,7 @@ ae4ab84422e487c1a533a42e2eecf774 Assembly-CSharp.dll:.TestingIssue2
 7e7ee21ab8ff1f2eb206565d6caa2bfd Assembly-CSharp.dll:TMPro.Examples.VertexShakeB
 eabb14b55dc317646709e1aaab0543fb Assembly-CSharp.dll:TMPro.Examples.Benchmark02
 9ecabe4a6b0b699f4890bde3b3e4b3b9 Assembly-CSharp.dll:TMPro.Examples.TMP_UiFrameRateCounter
-7af7e9258c9213b0de24f7791b2d66eb Assembly-CSharp.dll:.PaddleController
+c1c4e232a737478e7838ba49fb0ec39f Assembly-CSharp.dll:.PaddleController
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:TMPro.Examples.VertexColorCycler
 7e7ee21ab8ff1f2eb206565d6caa2bfd Assembly-CSharp.dll:TMPro.Examples.VertexZoom
 9492fe9d8624728b566776261576ee68 Assembly-CSharp.dll:.CameraBorderController

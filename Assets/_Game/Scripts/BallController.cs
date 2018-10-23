@@ -8,6 +8,8 @@ public class BallController : MonoBehaviour
     PaddleController paddleController;
     LivesController livesController;
     Rigidbody2D rigidbody;
+    public AudioSource collisionAudio;
+    public AudioSource deathAudio;
 
     public bool hasPowerUp = false;
     public bool touchedPaddle = true;
@@ -18,6 +20,12 @@ public class BallController : MonoBehaviour
     {
         GameObject managerObject = GameObject.FindGameObjectWithTag("GameManager");
         gameManager = managerObject.GetComponent<GameManager>();
+
+        GameObject collisionAudioObject = GameObject.FindGameObjectWithTag("CollisionAudio");
+        collisionAudio = collisionAudioObject.GetComponent<AudioSource>();
+
+        GameObject deathAudioObject = GameObject.FindGameObjectWithTag("DeathAudio");
+        deathAudio = deathAudioObject.GetComponent<AudioSource>();
 
         Vector2 size = new Vector2(Screen.width, Screen.height);
         Vector3 cameraSize = Camera.main.ScreenToWorldPoint(size);
@@ -53,6 +61,14 @@ public class BallController : MonoBehaviour
     void Update()
     {
         ConstantSpeed();
+        float test = rigidbody.velocity.y;
+
+        if (paddleController.ballReleased && test == 0)
+        {
+            float currentX = rigidbody.velocity.x;
+            // pushing ball if stuck between two walls
+            gameObject.GetComponentInChildren<Rigidbody2D>().AddForce(new Vector2(currentX, -6f), ForceMode2D.Impulse);
+        }
     }
 
     void ConstantSpeed()
@@ -65,6 +81,7 @@ public class BallController : MonoBehaviour
         //Debug.Log("collided");
         if (collision.gameObject.tag == "Bottom")
         {
+            deathAudio.Play();
             // toggle endless mode
             if (!gameManager.endless)
             {
@@ -81,6 +98,10 @@ public class BallController : MonoBehaviour
             // if ball set extra ball to ball
             paddleController.StartCoroutine("SpawnNewBall");
             Destroy(transform.parent.gameObject);
+        }
+        else
+        {
+            collisionAudio.Play();
         }
     }
 }

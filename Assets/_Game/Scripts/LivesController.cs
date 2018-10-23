@@ -25,7 +25,11 @@ public class LivesController : MonoBehaviour
         {
             for (int i = 1; i <= lives; i++)
             {
-                lifeSpawn = new Vector3(-6.3f, 4.7f, 0);
+                //GameObject lives = GameObject.FindGameObjectWithTag("Lives");
+
+                //float livesY = lives.transform.position.y;
+
+                lifeSpawn = new Vector3(-6.65f, 4.55f, 0);
                 //lifeSpawn = transform.position + new Vector3(0, 0, 0);
                 //lifeSpawn = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0));
                 GameObject newLife = Instantiate(lifePrefab, lifeSpawn, transform.rotation);

@@ -16,6 +16,8 @@ TagManager:
   - VariableHandler
   - Score
   - ExtraBall
+  - CollisionAudio
+  - DeathAudio
   layers:
   - Default
   - TransparentFX

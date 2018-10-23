@@ -12,11 +12,11 @@ public class PUExtraLife : PowerUpProperties
         GameObject managerObject = GameObject.FindGameObjectWithTag("GameManager");
         gameManager = managerObject.GetComponent<GameManager>();
 
-        GameObject lives = GameObject.FindGameObjectWithTag("Lives");
-        livesController = lives.GetComponent<LivesController>();
-
         if (!gameManager.endless)
         {
+            GameObject lives = GameObject.FindGameObjectWithTag("Lives");
+            livesController = lives.GetComponent<LivesController>();
+
             livesController.AddLife();
             EndPowerUp();
         }
