@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
         if (!GameObject.FindGameObjectWithTag("Brick"))
         {
-            Destroy(ball);
+            Destroy(ball.transform.parent.gameObject);
             yield return new WaitForSeconds(1);
             levelNumber++;
             //Debug.Log(levelNumber);

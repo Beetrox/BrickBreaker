@@ -77,7 +77,7 @@ public class BallController : MonoBehaviour
             // if extra ball no point taken
             // if ball set extra ball to ball
             paddleController.StartCoroutine("SpawnNewBall");
-            Destroy(gameObject.transform.parent.gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
 }

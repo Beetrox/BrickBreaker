@@ -2,28 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PUSmallPaddle : MonoBehaviour
+public class PUSmallPaddle : PowerUpProperties
 {
     GameObject paddle;
     int powerUpTime = 5;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void ExecutePowerUp()
     {
-        //Debug.Log("collided");
-        if (collision.gameObject.tag == "Paddle")
-        {
-            StartCoroutine("ExecutePowerUp");
-        }
-
-        if (collision.gameObject.tag == "Bottom")
-        {
-            //Debug.Log("bottom");
-            Destroy(gameObject);
-        }
-        //inputController.PowerUpFlash();
+        StartCoroutine("ExecutePowerUpCoroutine");
     }
 
-    IEnumerator ExecutePowerUp()
+    IEnumerator ExecutePowerUpCoroutine()
     {
         paddle = GameObject.FindGameObjectWithTag("Paddle");
         PaddleController paddleController = paddle.GetComponent<PaddleController>();

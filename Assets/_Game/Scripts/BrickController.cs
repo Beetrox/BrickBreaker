@@ -66,7 +66,7 @@ public class BrickController : MonoBehaviour
             scoreController.score = scoreController.score + 20;
         }
 
-        int randomPowerUp = Random.Range(0, 5);
+        int randomPowerUp = Random.Range(0, 2);
 
         if (randomPowerUp == 1)
         {

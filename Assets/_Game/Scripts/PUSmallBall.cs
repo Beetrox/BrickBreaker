@@ -2,27 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PUSmallBall : MonoBehaviour
+public class PUSmallBall : PowerUpProperties
 {
     GameObject ball;
     int powerUpTime = 5;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void ExecutePowerUp()
     {
-        //Debug.Log("collided");
-        if (collision.gameObject.tag == "Paddle")
-        {
-            StartCoroutine("ExecutePowerUp");
-        }
-
-        if (collision.gameObject.tag == "Bottom")
-        {
-            //Debug.Log("bottom");
-            Destroy(gameObject);
-        }
+        StartCoroutine("ExecutePowerUpCoroutine");
     }
 
-    IEnumerator ExecutePowerUp()
+    IEnumerator ExecutePowerUpCoroutine()
     {
         ball = GameObject.FindGameObjectWithTag("Ball");
         if (ball)
@@ -49,8 +39,8 @@ public class PUSmallBall : MonoBehaviour
                     ball.transform.localScale = baseSize;
                     ballController.hasPowerUp = false;
                     //Debug.Log(ball.transform.localScale);
-                    Destroy(gameObject);
                 }
+                Destroy(gameObject);
             }
         }
         else

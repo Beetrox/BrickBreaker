@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PUExtraBall : MonoBehaviour
+public class PUExtraBall : PowerUpProperties
 {
     GameObject ball;
     GameObject paddle;
@@ -17,22 +17,7 @@ public class PUExtraBall : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //Debug.Log("collided");
-        if (collision.gameObject.tag == "Paddle")
-        {
-            ExecutePowerUp();
-        }
-
-        if (collision.gameObject.tag == "Bottom")
-        {
-            //Debug.Log("bottom");
-            Destroy(gameObject);
-        }
-    }
-
-    private void ExecutePowerUp()
+    protected override void ExecutePowerUp()
     {
         ball = GameObject.FindGameObjectWithTag("Ball");
         if (ball)

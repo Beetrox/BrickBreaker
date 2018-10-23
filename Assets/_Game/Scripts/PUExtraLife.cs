@@ -2,26 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PUExtraLife : MonoBehaviour
+public class PUExtraLife : PowerUpProperties
 {
     LivesController livesController;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //Debug.Log("collided");
-        if (collision.gameObject.tag == "Paddle")
-        {
-            ExecutePowerUp();
-        }
-
-        if (collision.gameObject.tag == "Bottom")
-        {
-            //Debug.Log("bottom");
-            Destroy(gameObject);
-        }
-    }
-
-    void ExecutePowerUp()
+    protected override void ExecutePowerUp()
     {
         GameObject lives = GameObject.FindGameObjectWithTag("Lives");
         livesController = lives.GetComponent<LivesController>();
