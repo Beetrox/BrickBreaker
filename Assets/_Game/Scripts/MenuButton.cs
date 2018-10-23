@@ -16,13 +16,16 @@ public class MenuButton : MonoBehaviour
         GameObject managerObject = GameObject.FindGameObjectWithTag("GameManager");
         GameManager gameManager = managerObject.GetComponent<GameManager>();
 
-        GameObject livesObject = GameObject.FindGameObjectWithTag("Lives");
-        LivesController livesController = livesObject.GetComponent<LivesController>();
+        if (GameObject.FindGameObjectWithTag("Lives"))
+        {
+            GameObject livesObject = GameObject.FindGameObjectWithTag("Lives");
+            LivesController livesController = livesObject.GetComponent<LivesController>();
+        }
 
         variableHandler.endlessMode = gameManager.endless;
-        variableHandler.savedScore = scoreController.score;
-        variableHandler.savedLives = livesController.lives;
-        variableHandler.savedLevel = gameManager.levelNumber;
+        //variableHandler.savedScore = scoreController.score;
+        //variableHandler.savedLives = livesController.lives;
+        //variableHandler.savedLevel = gameManager.levelNumber;
 
         SceneManager.LoadScene("MainMenu");
     }

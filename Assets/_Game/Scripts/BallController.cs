@@ -38,8 +38,11 @@ public class BallController : MonoBehaviour
         GameObject paddle = GameObject.FindGameObjectWithTag("Paddle");
         paddleController = paddle.GetComponent<PaddleController>();
 
-        GameObject lives = GameObject.FindGameObjectWithTag("Lives");
-        livesController = lives.GetComponent<LivesController>();
+        if (GameObject.FindGameObjectWithTag("Lives"))
+        {
+            GameObject lives = GameObject.FindGameObjectWithTag("Lives");
+            livesController = lives.GetComponent<LivesController>();
+        }
 
         //if (gameObject.tag == "ExtraBall")
         //{

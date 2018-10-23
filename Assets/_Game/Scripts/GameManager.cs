@@ -40,7 +40,16 @@ public class GameManager : MonoBehaviour
 
         levelNumber = 1;
 
-        livesController.RestoreLives();
+        if (!endless)
+        {
+            livesController.SetUpLives();
+            //livesController.RestoreLives();
+        }
+        else if (endless)
+        {
+            GameObject livesText = GameObject.FindGameObjectWithTag("Lives");
+            livesText.SetActive(false);
+        }
 
         Init();
 	}

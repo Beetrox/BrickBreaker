@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUpProperties : MonoBehaviour
 {
-    //GameObject explosion;
+    public GameObject explosion;
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,6 +12,7 @@ public class PowerUpProperties : MonoBehaviour
         if (collision.gameObject.tag == "Paddle")
         {
             ExecutePowerUp();
+            Explosion();
         }
 
         if (collision.gameObject.tag == "Bottom")
@@ -21,10 +22,10 @@ public class PowerUpProperties : MonoBehaviour
         }
     }
 
-    //void Explosion()
-    //{
-    //    Instantiate(explosion, transform.position, explosion.transform.rotation);
-    //}
+    private void Explosion()
+    {
+        Instantiate(explosion, transform.position, explosion.transform.rotation);
+    }
 
     protected virtual void ExecutePowerUp()
     {

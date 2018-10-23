@@ -17,17 +17,23 @@ public class LivesController : MonoBehaviour
     {
         GameObject managerObject = GameObject.FindGameObjectWithTag("GameManager");
         gameManager = managerObject.GetComponent<GameManager>();
+    }
 
-        for (int i = 1; i <= lives; i++)
+    public void SetUpLives()
+    {
+        if (!gameManager.endless)
         {
-            lifeSpawn = new Vector3(-6.3f, 4.7f, 0);
-            //lifeSpawn = transform.position + new Vector3(0, 0, 0);
-            //lifeSpawn = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0));
-            GameObject newLife = Instantiate(lifePrefab, lifeSpawn, transform.rotation);
-            newLife.transform.SetParent(transform);
-            Vector3 position = newLife.transform.position;
-            position.x += (i * lifeDistance);
-            newLife.transform.position = position;
+            for (int i = 1; i <= lives; i++)
+            {
+                lifeSpawn = new Vector3(-6.3f, 4.7f, 0);
+                //lifeSpawn = transform.position + new Vector3(0, 0, 0);
+                //lifeSpawn = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0));
+                GameObject newLife = Instantiate(lifePrefab, lifeSpawn, transform.rotation);
+                newLife.transform.SetParent(transform);
+                Vector3 position = newLife.transform.position;
+                position.x += (i * lifeDistance);
+                newLife.transform.position = position;
+            }
         }
     }
 
