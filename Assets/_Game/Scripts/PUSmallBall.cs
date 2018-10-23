@@ -40,7 +40,7 @@ public class PUSmallBall : PowerUpProperties
                     ballController.hasPowerUp = false;
                     //Debug.Log(ball.transform.localScale);
                 }
-                Destroy(gameObject);
+                EndPowerUp();
             }
         }
         else

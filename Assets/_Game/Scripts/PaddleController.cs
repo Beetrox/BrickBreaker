@@ -25,7 +25,7 @@ public class PaddleController : MonoBehaviour
         float cameraY = cameraSize.y;
         float cameraZ = cameraSize.z;
 
-        transform.localScale = new Vector3(cameraX/3, cameraY/13, cameraZ);
+        transform.localScale = new Vector3(cameraX/11, cameraY/11, cameraZ);
         //Debug.Log(transform.localScale);
         transform.position = new Vector3(0, -cameraY+cameraY/6, 0);
 

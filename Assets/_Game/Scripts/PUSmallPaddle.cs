@@ -38,7 +38,7 @@ public class PUSmallPaddle : PowerUpProperties
             paddle.transform.localScale = baseSize;
             paddleController.hasPowerUp = false;
             //Debug.Log(paddle.transform.localScale);
-            Destroy(gameObject);
+            EndPowerUp();
         }
         else
         {

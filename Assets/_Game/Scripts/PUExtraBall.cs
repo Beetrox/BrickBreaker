@@ -24,7 +24,7 @@ public class PUExtraBall : PowerUpProperties
         {
             paddleController.extraball = true;
             StartCoroutine(paddleController.SpawnNewBall());
-            Destroy(gameObject);
+            EndPowerUp();
         }
     }
 }

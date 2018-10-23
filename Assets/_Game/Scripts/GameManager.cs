@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool gameOver = false;
     public bool endless = true;
+    public bool powerUpActive = false;
     Vector3 ballSpawnLocation = new Vector3(0, 0, 0);
     Vector3 paddleSpawnLocation;
     
