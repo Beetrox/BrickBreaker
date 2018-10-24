@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class VariableHandler : MonoBehaviour
 {
-    public bool endlessMode;
+    public bool endlessMode = false;
+    public bool survivalMode = false;
     public bool winner;
     public int finalScore;
 

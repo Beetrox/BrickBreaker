@@ -1721,6 +1721,7 @@ MonoBehaviour:
   levelNumber: 10
   gameOver: 0
   endless: 0
+  survival: 0
   powerUpActive: 0
 --- !u!4 &1914304408
 Transform:

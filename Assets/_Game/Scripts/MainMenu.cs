@@ -39,8 +39,9 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Level 1");
     }
 
-    public void ContinueGame()
+    public void SurvivalMode()
     {
+        variableHandler.survivalMode = true;
         SceneManager.LoadScene("Level 1");
     }
 
@@ -48,5 +49,11 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("QUIT");
         Application.Quit();
+    }
+
+
+    public void ContinueGame()
+    {
+        SceneManager.LoadScene("Level 1");
     }
 }

@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool gameOver = false;
     public bool endless = true;
+    public bool survival = false;
     public bool powerUpActive = false;
     Vector3 ballSpawnLocation = new Vector3(0, 0, 0);
     Vector3 paddleSpawnLocation;
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
         {
             VariableHandler variableHandler = variableObject.GetComponent<VariableHandler>();
             endless = variableHandler.endlessMode;
+            survival = variableHandler.survivalMode;
         }
         else
         {
@@ -41,7 +43,7 @@ public class GameManager : MonoBehaviour
 
         levelNumber = 1;
 
-        if (!endless)
+        if (!endless || survival)
         {
             livesController.SetUpLives();
             //livesController.RestoreLives();

@@ -23,6 +23,10 @@ public class LivesController : MonoBehaviour
     {
         if (!gameManager.endless)
         {
+            if (gameManager.survival)
+            {
+                lives = 1;
+            }
             for (int i = 1; i <= lives; i++)
             {
                 //GameObject lives = GameObject.FindGameObjectWithTag("Lives");
