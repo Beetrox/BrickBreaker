@@ -30,17 +30,20 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         variableHandler.endlessMode = false;
+        variableHandler.survivalMode = false;
         SceneManager.LoadScene("Level 1");
     }
 
     public void EndlessMode()
     {
         variableHandler.endlessMode = true;
+        variableHandler.survivalMode = false;
         SceneManager.LoadScene("Level 1");
     }
 
     public void SurvivalMode()
     {
+        variableHandler.endlessMode = false;
         variableHandler.survivalMode = true;
         SceneManager.LoadScene("Level 1");
     }
