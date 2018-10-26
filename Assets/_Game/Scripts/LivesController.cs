@@ -20,31 +20,6 @@ public class LivesController : MonoBehaviour
         gameManager = managerObject.GetComponent<GameManager>();
     }
 
-    //public void SetUpLives()
-    //{
-    //    if (!gameManager.endless)
-    //    {
-    //        if (gameManager.survival)
-    //        {
-    //            lives = 1;
-    //        }
-    //        for (int i = 1; i <= lives; i++)
-    //        {
-    //            //GameObject lives = GameObject.FindGameObjectWithTag("Lives");
-    //            //float livesY = lives.transform.position.y;
-
-    //            //lifeSpawn = new Vector3(-6.65f, 4.55f, 0);
-    //            //lifeSpawn = transform.position + new Vector3(0, 0, 0);
-    //            //lifeSpawn = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0));
-    //            GameObject newLife = Instantiate(lifePrefab, lifeSpawn, transform.rotation);
-    //            newLife.transform.SetParent(transform);
-    //            Vector3 position = newLife.transform.position;
-    //            position.x += (i * lifeDistance);
-    //            newLife.transform.position = position;
-    //        }
-    //    }
-    //}
-
     public void SetUpLives()
     {
         if (!gameManager.endless)
@@ -89,7 +64,6 @@ public class LivesController : MonoBehaviour
         if (!gameManager.gameOver && lives < maxLives)
         {
             lives++;
-            //Debug.Log(lives);
             transform.GetChild(lives-1).gameObject.SetActive(true);
         }
     }

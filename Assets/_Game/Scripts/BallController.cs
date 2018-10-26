@@ -13,7 +13,6 @@ public class BallController : MonoBehaviour
 
     public bool hasPowerUp = false;
     public bool touchedPaddle = true;
-    //Vector2 constantVelocity = new Vector2(1f, 1f);
     float constantSpeed = 6f;
 
     void Start()
@@ -37,9 +36,7 @@ public class BallController : MonoBehaviour
         float ballDiameter = cameraX / 13;
 
         rigidbody = gameObject.GetComponentInChildren<Rigidbody2D>() as Rigidbody2D;
-        //Vector3 ballSize = new Vector3(ballDiameter, ballDiameter, ballDiameter);
         transform.localScale = new Vector3(ballDiameter, ballDiameter, ballDiameter);
-        //Debug.Log(transform.localScale);
         Vector3 growSize = transform.localScale;
         LeanTween.scale(gameObject, growSize, 0.15f).setEaseInQuad();
 
@@ -51,11 +48,6 @@ public class BallController : MonoBehaviour
             GameObject lives = GameObject.FindGameObjectWithTag("Lives");
             livesController = lives.GetComponent<LivesController>();
         }
-
-        //if (gameObject.tag == "ExtraBall")
-        //{
-        //    gameObject.GetComponentInChildren<Rigidbody2D>().AddForce(new Vector2(0, 6f), ForceMode2D.Impulse);
-        //}
     }
 
     void Update()
@@ -78,24 +70,15 @@ public class BallController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log("collided");
         if (collision.gameObject.tag == "Bottom")
         {
             deathAudio.Play();
-            // toggle endless mode
+
             if (!gameManager.endless)
             {
                 livesController.RemoveLife();
             }
-
-            //if (gameObject.tag == "Ball")
-            //{
-            //    GameObject newBall = GameObject.FindGameObjectWithTag("ExtraBall");
-            //    newBall.tag = "Ball";
-            //}
-
-            // if extra ball no point taken
-            // if ball set extra ball to ball
+            
             paddleController.StartCoroutine("SpawnNewBall");
             Destroy(transform.parent.gameObject);
         }

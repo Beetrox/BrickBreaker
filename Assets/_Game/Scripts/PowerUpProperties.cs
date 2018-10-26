@@ -11,8 +11,7 @@ public class PowerUpProperties : MonoBehaviour
     {
         GameObject managerObject = GameObject.FindGameObjectWithTag("GameManager");
         gameManager = managerObject.GetComponent<GameManager>();
-
-        //Debug.Log("collided");
+        
         if (collision.gameObject.tag == "Paddle")
         {
             ExecutePowerUp();
@@ -22,7 +21,6 @@ public class PowerUpProperties : MonoBehaviour
 
         if (collision.gameObject.tag == "Bottom")
         {
-            //Debug.Log("bottom");
             Destroy(gameObject);
         }
     }

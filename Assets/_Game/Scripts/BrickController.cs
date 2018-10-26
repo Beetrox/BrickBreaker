@@ -5,11 +5,7 @@ using UnityEngine;
 public class BrickController : MonoBehaviour
 {
     public GameManager gameManager;
-    //public GameObject ballPrefab;
     public GameObject brickPrefab;
-    public GameObject powerUpBigPaddle;
-    public GameObject powerUpBigBall;
-    public GameObject powerUpSmallPaddle;
     public ScoreController scoreController;
     GameObject brick;
 
@@ -24,7 +20,6 @@ public class BrickController : MonoBehaviour
 
     public void SetUpBricks(int levelNumber)
     {
-        //Debug.Log("set up bricks");
         Vector2 size = new Vector2(Screen.width, Screen.height);
         Vector3 cameraSize = Camera.main.ScreenToWorldPoint(size);
 
@@ -70,15 +65,13 @@ public class BrickController : MonoBehaviour
             scoreController.score = scoreController.score + 15;
         }
 
-        int randomPowerUp = Random.Range(0, 5);
+        int randomPowerUp = Random.Range(0, 4);
 
         if (randomPowerUp == 1)
         {
             int random = Random.Range(0, powerUpAmount);
-            // why this rotation?
-            Instantiate(powerUpPrefabs[random], position, powerUpBigPaddle.transform.rotation);
+            Instantiate(powerUpPrefabs[random], position, transform.rotation);
         }
-
         gameManager.StartCoroutine("NextLevel");
     }
 }

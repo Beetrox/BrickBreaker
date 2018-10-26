@@ -35,17 +35,13 @@ public class Brick : MonoBehaviour
     {
         GameObject ball = GameObject.FindGameObjectWithTag("Ball");
         BallController ballController = ball.GetComponent<BallController>();
-
-        //Debug.Log("collided");
+        
         if (collision.gameObject.tag == "Ball")
         {
-            //Debug.Log("hit ball");
             Vector3 position = transform.position;
             brickController.BrickDestroyed(position);
             Instantiate(explosion, transform.position, explosion.transform.rotation);
             ballController.touchedPaddle = false;
-            //StartCoroutine(gameManager.NextLevel());
-
             Destroy(gameObject, 0.05f);
         }
     }

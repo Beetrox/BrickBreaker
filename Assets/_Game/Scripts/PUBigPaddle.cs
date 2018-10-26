@@ -24,16 +24,13 @@ public class PUBigPaddle : PowerUpProperties
             rigidbody2D.gravityScale = 0;
             paddleController.hasPowerUp = true;
             Vector3 baseSize = paddle.transform.localScale;
-            //Debug.Log(baseSize);
             float paddleX = baseSize.x;
             paddle.transform.localScale += new Vector3(paddleX, 0, 0);
-            //Debug.Log(paddle.transform.localScale);
             gameObject.transform.localScale = new Vector3(0, 0, 0);
 
             yield return new WaitForSeconds(powerUpTime);
             paddle.transform.localScale = baseSize;
             paddleController.hasPowerUp = false;
-            //Debug.Log(paddle.transform.localScale);
             EndPowerUp();
         }
         else

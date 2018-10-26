@@ -17,20 +17,14 @@ public class PaddleController : MonoBehaviour
     {
         Vector2 size = new Vector2(Screen.width, Screen.height);
         Vector3 cameraSize = Camera.main.ScreenToWorldPoint(size);
-
-        //gameManager = GameObject.FindGameObjectWithTag("GameManager");
-        //GameManager script = gameManager.GetComponent("GameManager);
         
         float cameraX = cameraSize.x;
         float cameraY = cameraSize.y;
         float cameraZ = cameraSize.z;
 
         transform.localScale = new Vector3(cameraX/11, cameraY/11, cameraZ);
-        //Debug.Log(transform.localScale);
         transform.position = new Vector3(0, -cameraY+cameraY/6, 0);
-
-        //spawn ball from here
-        //SpawnNewBall();
+        
         StartCoroutine("SpawnNewBall");
     }
 
@@ -70,7 +64,6 @@ public class PaddleController : MonoBehaviour
 
         if (ball && !ballReleased)
         {
-            //Rigidbody2D ballRigidbody = ball.GetComponent<Rigidbody2D>();
             ball.transform.position = BallSpawnPosition();
 
             // ball release for touch input
@@ -85,7 +78,6 @@ public class PaddleController : MonoBehaviour
                 {
                     if (hit.collider != null && hit.collider.tag == "Ball")
                     {
-                        //Debug.Log("release ball");
                         pushBall();
                         ballReleased = true;
                     }
@@ -95,7 +87,6 @@ public class PaddleController : MonoBehaviour
             // ball release for keyboard input
             if (Input.GetButtonDown("Jump"))
             {
-                //Debug.Log("release ball");
                 pushBall();
                 ballReleased = true;
             }
@@ -113,18 +104,11 @@ public class PaddleController : MonoBehaviour
         {
             if (!GameObject.FindGameObjectWithTag("ExtraBall"))
             {
-                //GameObject firstBall = GameObject.FindGameObjectWithTag("Ball");
                 Debug.Log("Extra ball");
-                //Vector3 extraBallSpawn = firstBall.transform.position + new Vector3(1, 1, 0);
-                //ball = Instantiate(ballPrefab, firstBall.transform.position, transform.rotation);
                 Vector3 ballSpawnLocation = BallSpawnPosition();
-                //Debug.Log("spawn");
                 ball = Instantiate(ballPrefab, ballSpawnLocation, transform.rotation);
                 ball.tag = "ExtraBall";
                 ballReleased = false;
-                //Renderer rend = extraBall.GetComponent<Renderer>();
-                //extraBall.rend.material.shader = Shader.Find("_Color");
-                //extraBall.rend.material.SetColor("_Color", Color.green);
                 extraball = false;
             }
         }
@@ -133,9 +117,7 @@ public class PaddleController : MonoBehaviour
         if (!GameObject.FindGameObjectWithTag("Ball"))
         {
             Vector3 ballSpawnLocation = BallSpawnPosition();
-            //Debug.Log("spawn");
             ball = Instantiate(ballPrefab, ballSpawnLocation, transform.rotation);
-            //ball.tag = "Ball";
             ballReleased = false;
         }
     }
@@ -151,14 +133,12 @@ public class PaddleController : MonoBehaviour
     {
         GameObject ball = GameObject.FindGameObjectWithTag("Ball");
         BallController ballController = ball.GetComponent<BallController>();
-
-        //Debug.Log("collided");
+        
         foreach (ContactPoint2D contactPoint in collision.contacts)
         {
             if(collision.transform.tag == "Ball")
             {
                 ballController.touchedPaddle = true;
-                //Debug.Log("collided ball");
                 Vector2 hitpoint = contactPoint.point;
                 float calc = hitpoint.x - transform.position.x;
                 contactPoint.collider.GetComponent<Rigidbody2D>().AddForce(new Vector2(70, 0) * calc);

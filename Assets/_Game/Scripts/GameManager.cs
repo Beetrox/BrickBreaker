@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
         if (!endless || survival)
         {
             livesController.SetUpLives();
-            //livesController.RestoreLives();
         }
         else if (endless)
         {
@@ -85,17 +84,14 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator NextLevel()
     {
-        // Do I need this?
         yield return new WaitForSeconds(0.05f);
         if (!GameObject.FindGameObjectWithTag("Brick"))
         {
             Destroy(ball.transform.parent.gameObject);
             yield return new WaitForSeconds(1);
             levelNumber++;
-            //Debug.Log(levelNumber);
             if(levelNumber <= finalLevel)
             {
-                //Debug.Log("set up next level");
                 brickController.SetUpBricks(levelNumber);
                 StartCoroutine(paddleController.SpawnNewBall());
             }

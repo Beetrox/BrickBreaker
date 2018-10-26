@@ -23,19 +23,14 @@ public class PowerUpController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log("collided");
         if (collision.gameObject.tag == "Paddle")
         {
-            //Debug.Log("power up then destroy");
-            // connect to FastBall()
             Destroy(gameObject, 0.05f);
         }
 
         if (collision.gameObject.tag == "Bottom")
         {
-            //Debug.Log("bottom");
             Destroy(gameObject);
         }
-        //inputController.PowerUpFlash();
     }
 }

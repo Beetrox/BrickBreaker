@@ -7,8 +7,7 @@ public class GameOverText : MonoBehaviour
 {
     TextMeshProUGUI tmText;
     bool winner;
-
-	// Use this for initialization
+    
 	void Start ()
     {
         GameObject variableObject = GameObject.FindGameObjectWithTag("VariableHandler");
@@ -27,9 +26,4 @@ public class GameOverText : MonoBehaviour
             tmText.SetText("GAME OVER!");
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
